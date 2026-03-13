@@ -336,7 +336,7 @@ alert("Member Added")
 
 function addDeposit(){
 
-let i=parseInt(document.getElementById("memberIndex").value)
+let i=parseInt(document.getElementById("memberIndex").value)-1
 let amount=parseInt(document.getElementById("depositAmount").value)
 
 members[i].money+=amount
