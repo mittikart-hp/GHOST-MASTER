@@ -1,12 +1,20 @@
-let members=[
-
-{name:"Lucas_Arora",rank:10,level:40,number:"309494",password:"lucas9389",money:0,war:0},
-
-{name:"Arushkumar_Kumar",rank:9,level:36,number:"309413",password:"arush6327",money:0,war:0}
-
+let members = JSON.parse(localStorage.getItem("members")) || [
+{name:"Lucas_Arora",rank:10,level:9,password:"lucas9389",money:0,war:0},
+{name:"Arushkumar_Kumar",rank:9,level:36,password:"arush6327",money:0,war:0},
+{name:"Don_Abhishek",rank:8,level:19,password:"abhishek7419",money:120,war:0},
+{name:"Sheikh_Himanshu",rank:8,level:7,password:"himanshu8642",money:0,war:0},
+{name:"Pradyum_Ivanov",rank:8,level:24,password:"pradyum5931",money:0,war:0}
 ];
 
-let user=null;
+function saveData(){
+localStorage.setItem("members",JSON.stringify(members));
+}
+
+function formatMoney(m){
+if(m>=1000000) return Math.floor(m/1000000)+"m";
+if(m>=1000) return Math.floor(m/1000)+"k";
+return m;
+}
 
 function login(){
 
@@ -14,28 +22,38 @@ let name=document.getElementById("name").value;
 let rank=parseInt(document.getElementById("rank").value);
 let pass=document.getElementById("password").value;
 
-user=members.find(m=>m.name===name && m.rank===rank && m.password===pass);
+let user=members.find(m=>m.name===name && m.rank===rank && m.password===pass);
 
 if(!user){
-alert("Wrong Login Details");
+alert("Wrong Login");
 return;
 }
+
+localStorage.setItem("user",JSON.stringify(user));
+
+openDashboard();
+
+}
+
+function openDashboard(){
+
+let user=JSON.parse(localStorage.getItem("user"));
 
 document.getElementById("loginPage").style.display="none";
 document.getElementById("dashboard").style.display="block";
 
-document.getElementById("welcome").innerText="Welcome "+user.name;
+document.getElementById("welcome").innerHTML="Welcome "+user.name;
+
+if(user.rank<10){
+document.getElementById("adminBtn").style.display="none";
+}
 
 if(user.rank>=7){
 document.getElementById("staffBtn").style.display="block";
 }
 
-if(user.rank==9 || user.rank==10){
+if(user.rank===9 || user.rank===10){
 document.getElementById("deputyBtn").style.display="block";
-}
-
-if(user.rank<10){
-document.getElementById("adminBtn").style.display="none";
 }
 
 }
@@ -46,24 +64,30 @@ document.getElementById("dashboard").style.display="none";
 document.getElementById("page").style.display="block";
 
 let content=document.getElementById("content");
+let user=JSON.parse(localStorage.getItem("user"));
 
 if(page==="members"){
 
-document.getElementById("title").innerText="Members";
+document.getElementById("title").innerHTML="Members";
 
-let html="<table><tr><th>No</th><th>Name</th><th>Rank</th><th>Level</th><th>Number</th></tr>";
+let html="<table><tr><th>S.No</th><th>Name</th><th>Rank</th><th>Level</th></tr>";
 
 members.forEach((m,i)=>{
 
-html+=`
-<tr>
+let name=m.name;
+
+if(user.rank>=7){
+name=`<span class="rainbowName" onclick="showProfile(${i})">${m.name}</span>`;
+}else{
+name=`<span class="rainbowName">${m.name}</span>`;
+}
+
+html+=`<tr>
 <td>${i+1}</td>
-<td class="memberName">${m.name}</td>
+<td>${name}</td>
 <td>${m.rank}</td>
-<td class="level">${m.level}</td>
-<td>${m.number}</td>
-</tr>
-`;
+<td>${m.level}</td>
+</tr>`;
 
 });
 
@@ -75,7 +99,7 @@ content.innerHTML=html;
 
 if(page==="players"){
 
-document.getElementById("title").innerText="Players Info";
+document.getElementById("title").innerHTML="Players Info";
 
 let html="<table><tr><th>Name</th><th>Contribution</th><th>War</th><th>Action</th></tr>";
 
@@ -84,22 +108,16 @@ members.forEach((m,i)=>{
 let action="";
 
 if(user.rank==10){
-
-action=`
-<button class="warAdd" onclick="addWar(${i})">+</button>
-<button class="warRemove" onclick="removeWar(${i})">-</button>
-`;
-
+action=`<button class="warAdd" onclick="addWar(${i})">+1</button>
+<button class="warRemove" onclick="removeWar(${i})">-1</button>`;
 }
 
-html+=`
-<tr>
-<td class="memberName">${m.name}</td>
-<td class="contribution">${m.money}</td>
-<td class="war">${m.war}</td>
+html+=`<tr>
+<td class="rainbowName">${m.name}</td>
+<td>${formatMoney(m.money)}</td>
+<td>${m.war}</td>
 <td>${action}</td>
-</tr>
-`;
+</tr>`;
 
 });
 
@@ -109,26 +127,25 @@ content.innerHTML=html;
 
 }
 
-if(page==="rules"){
+if(page==="deposit"){
 
-document.getElementById("title").innerText="Family Rules";
+document.getElementById("title").innerHTML="Family Rules";
 
 content.innerHTML=`
 <div class="rulesBox">
-<p class="ruleColor">
+<p>
+Ghost Master Family Rules<br><br>
 
-👻 GHOST MASTER FAMILY RULES 👻
-
-1️⃣ Respect everyone  
-2️⃣ No toxicity  
-3️⃣ Follow war orders  
-4️⃣ Stay active  
-5️⃣ No internal fights  
-6️⃣ Follow server rules  
-7️⃣ No cheating  
-8️⃣ War proof required  
-9️⃣ Maintain reputation  
-🔟 Reward system active  
+1 Respect all members<br>
+2 No toxicity<br>
+3 Follow war discipline<br>
+4 Stay active<br>
+5 No internal fights<br>
+6 Follow server rules<br>
+7 No cheating<br>
+8 War proof required<br>
+9 Protect family reputation<br>
+10 Reward system active
 
 </p>
 </div>
@@ -138,15 +155,15 @@ content.innerHTML=`
 
 if(page==="staff"){
 
-document.getElementById("title").innerText="Senior Staff Rules";
+document.getElementById("title").innerHTML="Senior Staff Rules";
 
 content.innerHTML=`
 <div class="rulesBox">
 
-1. Add members  
-2. Warn rule breakers  
-3. Maintain discipline  
-4. Help leader  
+1 Add members<br>
+2 Give warnings<br>
+3 Do not sell ranks<br>
+4 Maintain trust
 
 </div>
 `;
@@ -155,15 +172,18 @@ content.innerHTML=`
 
 if(page==="deputy"){
 
-document.getElementById("title").innerText="Deputy Rules";
+document.getElementById("title").innerHTML="Deputy Rules";
 
 content.innerHTML=`
 <div class="rulesBox">
 
-1. Manage family when leader offline  
-2. Help leader in wars  
-3. Check member activity  
-4. Report problems  
+Deputy Responsibilities<br><br>
+
+1 Help leader manage family<br>
+2 Handle family in leader absence<br>
+3 Maintain discipline<br>
+4 Monitor members activity<br>
+5 Report problems to leader
 
 </div>
 `;
@@ -172,7 +192,7 @@ content.innerHTML=`
 
 if(page==="admin"){
 
-document.getElementById("title").innerText="Admin Panel";
+document.getElementById("title").innerHTML="Admin Panel";
 
 content.innerHTML=`
 
@@ -181,14 +201,65 @@ content.innerHTML=`
 <input id="newName" placeholder="Name">
 <input id="newRank" placeholder="Rank">
 <input id="newLevel" placeholder="Level">
-<input id="newNumber" placeholder="Number">
 <input id="newPass" placeholder="Password">
 
 <button onclick="addMember()">Add Member</button>
 
+<h3>Update Contribution</h3>
+
+<input id="memberIndex" placeholder="Member Number">
+<input id="depositAmount" placeholder="Deposit">
+
+<button onclick="addDeposit()">Add Deposit</button>
+
 `;
 
 }
+
+}
+
+function showProfile(i){
+
+let m=members[i];
+
+document.getElementById("title").innerHTML="Member Profile";
+
+document.getElementById("content").innerHTML=`
+
+<div class="rulesBox">
+
+<h3 class="rainbowName">${m.name}</h3>
+
+Rank : ${m.rank}<br>
+Level : ${m.level}<br>
+Contribution : ${formatMoney(m.money)}<br>
+War Count : ${m.war}
+
+</div>
+
+`;
+
+}
+
+function addWar(i){
+
+members[i].war++;
+
+saveData();
+
+openPage("players");
+
+}
+
+function removeWar(i){
+
+if(members[i].war>0){
+members[i].war--;
+}
+
+saveData();
+
+openPage("players");
 
 }
 
@@ -197,30 +268,45 @@ function addMember(){
 let name=document.getElementById("newName").value;
 let rank=parseInt(document.getElementById("newRank").value);
 let level=parseInt(document.getElementById("newLevel").value);
-let number=document.getElementById("newNumber").value;
 let pass=document.getElementById("newPass").value;
 
-members.push({name,rank,level,number,password:pass,money:0,war:0});
+members.push({name,rank,level,password:pass,money:0,war:0});
+
+saveData();
 
 alert("Member Added");
 
 }
 
-function addWar(i){
-members[i].war++;
-openPage("players");
-}
+function addDeposit(){
 
-function removeWar(i){
-if(members[i].war>0) members[i].war--;
-openPage("players");
+let i=parseInt(document.getElementById("memberIndex").value)-1;
+
+let amount=parseInt(document.getElementById("depositAmount").value);
+
+members[i].money+=amount;
+
+saveData();
+
+alert("Deposit Added");
+
 }
 
 function back(){
+
 document.getElementById("page").style.display="none";
 document.getElementById("dashboard").style.display="block";
+
 }
 
 function logout(){
+
+localStorage.clear();
+
 location.reload();
+
+}
+
+if(localStorage.getItem("user")){
+openDashboard();
 }
