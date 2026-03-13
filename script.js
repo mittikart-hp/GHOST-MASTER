@@ -184,6 +184,10 @@ if(page==="admin"){
     <input id="memberIndex" placeholder="Member Number">
     <input id="depositAmount" placeholder="Deposit">
     <button class="addDepositBtn" onclick="addDeposit()">Add Deposit</button>`;
+
+    <h3>Remove Member</h3>
+<input id="removeIndex" placeholder="Member Number">
+<button onclick="removeMember()">Remove Member</button>
 }
 }
 
@@ -230,6 +234,20 @@ function addDeposit(){
     members[i].money+=amount;
     saveData();
     alert("Deposit Added");
+}
+
+function removeMember(){
+
+let i=parseInt(document.getElementById("removeIndex").value)-1;
+
+members.splice(i,1);
+
+saveData();
+
+alert("Member Removed");
+
+openPage("members");
+
 }
 
 function back(){
