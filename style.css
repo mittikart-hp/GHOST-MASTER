@@ -671,3 +671,30 @@ background:url("https://images.unsplash.com/photo-1511512578047-dfb367046420?aut
 background-size:cover;
 background-position:center;
 }
+/* MEMBER NAME WHITE */
+.memberName{
+color:white;
+font-weight:bold;
+}
+
+.memberName:hover{
+color:red;
+}
+
+/* CONTRIBUTION */
+.contribution{
+color:white;
+font-weight:bold;
+}
+
+/* LEVEL */
+.level{
+color:#00aaff;
+font-weight:bold;
+}
+
+/* WAR */
+.war{
+color:#00aaff;
+font-weight:bold;
+}
