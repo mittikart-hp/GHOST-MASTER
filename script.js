@@ -68,6 +68,15 @@ if(user.rank>=7){
 document.getElementById("staffBtn").style.display="block"
 }
 
+// Rank 9 ke liye Deputy Rules button
+if(user.rank === 9){
+    let dash = document.querySelector(".menu");
+    let deputyBtn = document.createElement("button");
+    deputyBtn.innerText = "Deputy Rules";
+    deputyBtn.classList.add("deputyBtn");  // styling ke liye
+    deputyBtn.onclick = () => openPage("deputy");
+    dash.appendChild(deputyBtn);
+}  
 }
 
 function openPage(page){
@@ -243,6 +252,36 @@ content.innerHTML=`
 
 }
 
+  
+if(page === "deputy") {
+    document.getElementById("title").innerHTML = "Deputy Rules";
+
+    document.getElementById("content").innerHTML = `
+    <div class="rulesBox">
+        <p class="ruleColor">
+        🛡️ GHOST MASTER FAMILY – DEPUTY RULES<br><br>
+
+        1️⃣ Family ko properly manage karna Leader ki zimmedari hai.<br>
+        2️⃣ War ke time final decision Leader ka hoga.<br>
+        3️⃣ Members ki promotion/demotion performance ke base par hogi.<br>
+        4️⃣ Family discipline maintain karna compulsory hai.<br>
+        5️⃣ War strategy aur planning Leader karega.<br>
+        6️⃣ Internal fight ko turant control karna hoga.<br>
+        7️⃣ Server rules ka khud bhi follow kare aur members se bhi karvaye.<br>
+        8️⃣ Abuse ya power misuse karne par action liya jayega.<br><br>
+
+        9️⃣ Leader ki absence me Deputy family handle karega.<br>
+        🔟 War ke time Leader ko support karna mandatory hai.<br>
+        1️⃣1️⃣ Members ki attendance aur activity check karega.<br>
+        1️⃣2️⃣ War location par sabko time se pahunchana Deputy ki duty hai.<br>
+        1️⃣3️⃣ New members ko rules samjhana hoga.<br>
+        1️⃣4️⃣ Internal issue ko Leader tak report karega.<br>
+        1️⃣5️⃣ Power misuse karne par rank remove ho sakta hai.
+        </p>
+    </div>
+    `;
+}
+  
 /* ADMIN PANEL */
 
 if(page==="admin"){
