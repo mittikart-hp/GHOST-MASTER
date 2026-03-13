@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Ghost Master Family</title>
+<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+<div id="loginPage">
+
+<h1>Ghost Master Family</h1>
+
+<input id="name" placeholder="Game Name">
+<input id="rank" placeholder="Rank">
+<input id="password" type="password" placeholder="Password">
+
+<button onclick="login()">LOGIN</button>
+
+</div>
+
+
+<div id="dashboard" style="display:none">
+
+<h2 id="welcome"></h2>
+
+<div class="menu">
+
+<button onclick="openPage('members')">Members</button>
+
+<button onclick="openPage('players')">Players Info</button>
+
+<button onclick="openPage('deposit')">Family Rules</button>
+
+<button id="staffBtn" onclick="openPage('staff')" style="display:none">Senior Staff Work Rules</button>
+
+<button id="adminBtn" onclick="openPage('admin')">Admin Panel</button>
+
+<button onclick="logout()">Logout</button>
+
+</div>
+
+</div>
+
+
+<div id="page" style="display:none">
+
+<h2 id="title"></h2>
+
+<div id="content"></div>
+
+<button id="backBtn" onclick="back()">Back</button>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
