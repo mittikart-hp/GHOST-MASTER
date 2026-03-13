@@ -1,52 +1,53 @@
+/* GENERAL BODY */
 body{
-background:url("https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1500&q=80");
-background-size:cover;
-background-position:center;
-background-attachment:fixed;
-color:white;
-font-family:Arial;
-text-align:center;
+    background:url("https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1500&q=80");
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+    color:white;
+    font-family:Arial;
+    text-align:center;
 }
 
 /* TITLE */
 h1{
-color:#00f7ff;
-font-size:38px;
-text-shadow:0 0 25px #00f7ff;
+    color:#00f7ff;
+    font-size:38px;
+    text-shadow:0 0 25px #00f7ff;
 }
 h2{
-color:#ff00ff;
-text-shadow:0 0 15px #ff00ff;
+    color:#ff00ff;
+    text-shadow:0 0 15px #ff00ff;
 }
 
 /* LOGIN PAGE */
 #loginPage{
-border:3px solid;
-border-image:linear-gradient(45deg,#ff0000,#00ffcc,#ff00ff,#ffff00) 1;
-padding:25px;
-margin:20px;
-border-radius:20px;
-background:url("https://images.unsplash.com/photo-1520034475321-cbe63696469a?auto=format&fit=crop&w=1500&q=80");
-background-size:cover;
-background-position:center;
+    border:3px solid;
+    border-image:linear-gradient(45deg,#ff0000,#00ffcc,#ff00ff,#ffff00) 1;
+    padding:25px;
+    margin:20px;
+    border-radius:20px;
+    background:url("https://images.unsplash.com/photo-1520034475321-cbe63696469a?auto=format&fit=crop&w=1500&q=80");
+    background-size:cover;
+    background-position:center;
 }
 
 /* INPUT DEFAULT */
 input{
-display:block;
-margin:12px auto;
-padding:14px;
-width:260px;
-border-radius:12px;
-border:3px solid;
-background:#111;
-color:white;
-font-weight:bold;
-outline:none;
-transition:0.3s;
+    display:block;
+    margin:12px auto;
+    padding:14px;
+    width:260px;
+    border-radius:12px;
+    border:3px solid;
+    background:#111;
+    color:white;
+    font-weight:bold;
+    outline:none;
+    transition:0.3s;
 }
 input:focus{
-transform:scale(1.05);
+    transform:scale(1.05);
 }
 
 /* LOGIN INPUTS */
@@ -66,29 +67,29 @@ transform:scale(1.05);
 
 /* LOGIN BUTTON */
 #loginPage button{
-background:linear-gradient(45deg,#003cff,#00ffee);
-color:white;
-font-weight:bold;
-box-shadow:0 0 15px #00ffee;
-border:2px solid #00ffee;
-padding:14px;
-width:230px;
-border-radius:12px;
-cursor:pointer;
+    background:linear-gradient(45deg,#003cff,#00ffee);
+    color:white;
+    font-weight:bold;
+    box-shadow:0 0 15px #00ffee;
+    border:2px solid #00ffee;
+    padding:14px;
+    width:230px;
+    border-radius:12px;
+    cursor:pointer;
 }
 #loginPage button:hover{transform:scale(1.1);}
 
 /* DASHBOARD BUTTONS */
 .menu button{
-display:block;
-margin:12px auto;
-padding:15px;
-width:240px;
-border:none;
-border-radius:14px;
-font-size:16px;
-cursor:pointer;
-transition:0.3s;
+    display:block;
+    margin:12px auto;
+    padding:15px;
+    width:240px;
+    border:none;
+    border-radius:14px;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
 }
 .menu button:nth-child(1){background:#ff0066;box-shadow:0 0 15px #ff0066;}
 .menu button:nth-child(2){background:#00ccff;box-shadow:0 0 15px #00ccff;}
@@ -100,50 +101,48 @@ button:hover{transform:scale(1.08);}
 
 /* DEPUTY BUTTON */
 .menu button.deputyBtn{
-background: linear-gradient(45deg,#6600ff,#ff33ff);
-color: white;
-box-shadow: 0 0 15px #6600ff;
-font-weight: bold;
+    background: linear-gradient(45deg,#6600ff,#ff33ff);
+    color: white;
+    box-shadow: 0 0 15px #6600ff;
+    font-weight: bold;
 }
 .menu button.deputyBtn:hover{
-transform: scale(1.08);
+    transform: scale(1.08);
+}
+
+/* ADMIN PANEL BUTTON (button 6, purple, rank 10 only) */
+#adminBtn {
+    background: linear-gradient(45deg, #8a2be2, #bf40bf); /* Purple gradient */
+    color: white;
+    box-shadow: 0 0 20px #8a2be2, 0 0 30px #bf40bf;
+    font-weight: bold;
+    border: 2px solid #6600ff;
+}
+#adminBtn:hover {
+    transform: scale(1.1);
 }
 
 /* CONTENT BOX */
 #content{
-border:3px solid;
-border-image:linear-gradient(45deg,#00ffcc,#ff00ff,#ff0000,#00ffee) 1;
-padding:20px;
-border-radius:20px;
-margin-top:20px;
-
-  
+    border:3px solid;
+    border-image:linear-gradient(45deg,#00ffcc,#ff00ff,#ff0000,#00ffee) 1;
+    padding:20px;
+    border-radius:20px;
+    margin-top:20px;
 }
 
-/* Admin Panel Button - Purple */
-#adminBtn {
-    background: linear-gradient(45deg, #8a2be2, #bf40bf); /* Purple gradient */
-    color: white;
-    box-shadow: 0 0 20px #8a2be2, 0 0 30px #bf40bf; /* Glow effect */
-    font-weight: bold;
-    border: 2px solid #6600ff;
-}
-
-#adminBtn:hover {
-    transform: scale(1.1);
-}
 /* BACK BUTTON */
 #backBtn{
-background:linear-gradient(45deg,#ff00cc,#3333ff,#00ffee);
-color:white;
-font-weight:bold;
-padding:12px;
-width:180px;
-border:none;
-border-radius:12px;
-box-shadow:0 0 15px #ff00cc;
-margin-top:15px;
-cursor:pointer;
+    background:linear-gradient(45deg,#ff00cc,#3333ff,#00ffee);
+    color:white;
+    font-weight:bold;
+    padding:12px;
+    width:180px;
+    border:none;
+    border-radius:12px;
+    box-shadow:0 0 15px #ff00cc;
+    margin-top:15px;
+    cursor:pointer;
 }
 #backBtn:hover{transform:scale(1.1);}
 
@@ -160,21 +159,47 @@ tr:hover{background:#111;}
 
 /* MEMBER NAME MULTICOLOR */
 .rainbowName{
-font-weight:bold;
-background:linear-gradient(90deg,red,orange,yellow,lime,cyan,blue,magenta);
--webkit-background-clip:text;
-color:transparent;
-font-size:17px;
+    font-weight:bold;
+    background:linear-gradient(90deg,red,orange,yellow,lime,cyan,blue,magenta);
+    -webkit-background-clip:text;
+    color:transparent;
+    font-size:17px;
 }
 
 /* FAMILY RULES BOX */
 .rulesBox{
-border:4px solid;
-border-image:linear-gradient(45deg,#ff0000,#00ffcc,#ff00ff,#ffff00) 1;
-padding:25px;
-border-radius:20px;
-margin-top:15px;
-background:#0b0b0b;
+    border:4px solid;
+    border-image:linear-gradient(45deg,#ff0000,#00ffcc,#ff00ff,#ffff00) 1;
+    padding:25px;
+    border-radius:20px;
+    margin-top:15px;
+    background:#0b0b0b;
 }
 .ruleColor{
-background:linear-gradient(90deg
+    background:linear-gradient(90deg,#ff0000,#ff9900,#ffff00,#00ff88,#00ccff,#cc00ff);
+    -webkit-background-clip:text;
+    color:transparent;
+    font-weight:bold;
+    line-height:28px;
+}
+
+/* LOGIN PAGE BACKGROUND */
+#loginPage{
+    background:url("https://images.unsplash.com/photo-1520034475321-cbe63696469a05e?auto=format&fit=crop&w=1500&q=80");
+    background-size:cover;
+    background-position:center;
+}
+
+/* DASHBOARD BACKGROUND */
+#dashboard{
+    background:url("https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1500&q=80");
+    background-size:cover;
+    background-position:center;
+}
+
+/* MEMBERS / PAGES BACKGROUND */
+#page{
+    background:url("https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1500&q=80");
+    background-size:cover;
+    background-position:center;
+}
