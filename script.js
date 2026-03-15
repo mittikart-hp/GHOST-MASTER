@@ -1,7 +1,7 @@
 let members = JSON.parse(localStorage.getItem("members")) || [
 {name:"Lucas_Arora",rank:10,level:40,password:"lucas9389",money:0,war:0},
 {name:"Arushkumar_Kumar",rank:8,level:36,password:"arush6327",money:0,war:0},
-{name:"Vlad_Kevin",rank:9,level:19,password:"vlad",money:12000,war:0},
+{name:"Vlad_Kevin",rank:9,level:19,password:"vlad786",money:12000,war:0},
 {name:"Sheikh_Himanshu",rank:8,level:7,password:"himanshu8642",money:0,war:0},
 {name:"Pradyum_Ivanov",rank:8,level:24,password:"pradyum5931",money:0,war:0}
 ];
