@@ -1,9 +1,5 @@
-/* GENERAL BODY */
 body{
-    background:url("https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1500&q=80");
-    background-size:cover;
-    background-position:center;
-    background-attachment:fixed;
+    background:#050505;
     color:white;
     font-family:Arial;
     text-align:center;
@@ -27,12 +23,9 @@ h2{
     padding:25px;
     margin:20px;
     border-radius:20px;
-    background:url("https://images.unsplash.com/photo-1520034475321-cbe63696469a?auto=format&fit=crop&w=1500&q=80");
-    background-size:cover;
-    background-position:center;
 }
 
-/* INPUT DEFAULT */
+/* INPUTS */
 input{
     display:block;
     margin:12px auto;
@@ -50,34 +43,28 @@ input:focus{
     transform:scale(1.05);
 }
 
-/* LOGIN INPUTS */
-#name{border-image:linear-gradient(45deg,#00ffee,#0099ff,#0044ff) 1; box-shadow:0 0 12px #00ffee;}
-#rank{border-image:linear-gradient(45deg,#00ff88,#00ffaa,#00ffcc) 1; box-shadow:0 0 12px #00ff88;}
-#password{border-image:linear-gradient(45deg,#ff00cc,#cc00ff,#9900ff) 1; box-shadow:0 0 12px #ff00cc;}
-
-/* ADD MEMBER INPUTS */
-#newName{border-image:linear-gradient(45deg,#ff0000,#ff9900,#ffff00) 1; box-shadow:0 0 12px #ff5500;}
-#newRank{border-image:linear-gradient(45deg,#00ffee,#0099ff,#0044ff) 1; box-shadow:0 0 12px #00ffee;}
-#newLevel{border-image:linear-gradient(45deg,#00ff88,#00ffaa,#00ffcc) 1; box-shadow:0 0 12px #00ff88;}
-#newPass{border-image:linear-gradient(45deg,#ff00cc,#cc00ff,#9900ff) 1; box-shadow:0 0 12px #ff00cc;}
-
-/* UPDATE CONTRIBUTION INPUTS */
-#memberIndex{border-image:linear-gradient(45deg,#ff0066,#ff3399,#ff66cc) 1; box-shadow:0 0 12px #ff0066;}
-#depositAmount{border-image:linear-gradient(45deg,#00ffcc,#00ffaa,#00ff88) 1; box-shadow:0 0 12px #00ffcc;}
-
-/* LOGIN BUTTON */
+/* BUTTONS */
+button{
+    font-weight:bold;
+    padding:12px;
+    width:220px;
+    border:none;
+    border-radius:10px;
+    margin:10px;
+    cursor:pointer;
+}
 #loginPage button{
     background:linear-gradient(45deg,#003cff,#00ffee);
     color:white;
-    font-weight:bold;
     box-shadow:0 0 15px #00ffee;
     border:2px solid #00ffee;
     padding:14px;
     width:230px;
     border-radius:12px;
-    cursor:pointer;
 }
-#loginPage button:hover{transform:scale(1.1);}
+#loginPage button:hover{
+    transform:scale(1.1);
+}
 
 /* DASHBOARD BUTTONS */
 .menu button{
@@ -85,7 +72,6 @@ input:focus{
     margin:12px auto;
     padding:15px;
     width:240px;
-    border:none;
     border-radius:14px;
     font-size:16px;
     cursor:pointer;
@@ -95,41 +81,11 @@ input:focus{
 .menu button:nth-child(2){background:#00ccff;box-shadow:0 0 15px #00ccff;}
 .menu button:nth-child(3){background:#00ff88;color:black;box-shadow:0 0 15px #00ff88;}
 .menu button:nth-child(4){background:#ff9500;color:black;box-shadow:0 0 15px #ff9500;}
-.menu button:nth-child(5){background:#ff3333;box-shadow:0 0 15px #ff3333;}
-button:hover{transform:scale(1.08);}
+.menu button:nth-child(5){background:#ffcc00;color:black;box-shadow:0 0 15px #ffcc00;}
+.menu button:nth-child(6){background:#ff33ff;color:black;box-shadow:0 0 15px #ff33ff;}
+.menu button:nth-child(7){background:#ff3333;box-shadow:0 0 15px #ff3333;}
 .menu button:last-child{background:#ff0000;box-shadow:0 0 15px #ff0000;color:white;}
-
-/* DEPUTY BUTTON */
-.menu button.deputyBtn{
-    background: linear-gradient(45deg,#6600ff,#ff33ff);
-    color: white;
-    box-shadow: 0 0 15px #6600ff;
-    font-weight: bold;
-}
-.menu button.deputyBtn:hover{
-    transform: scale(1.08);
-}
-
-/* ADMIN PANEL BUTTON (button 6, purple, rank 10 only) */
-#adminBtn {
-    background: linear-gradient(45deg, #8a2be2, #bf40bf); /* Purple gradient */
-    color: white;
-    box-shadow: 0 0 20px #8a2be2, 0 0 30px #bf40bf;
-    font-weight: bold;
-    border: 2px solid #6600ff;
-}
-#adminBtn:hover {
-    transform: scale(1.1);
-}
-
-/* CONTENT BOX */
-#content{
-    border:3px solid;
-    border-image:linear-gradient(45deg,#00ffcc,#ff00ff,#ff0000,#00ffee) 1;
-    padding:20px;
-    border-radius:20px;
-    margin-top:20px;
-}
+.menu button:hover{transform:scale(1.08);}
 
 /* BACK BUTTON */
 #backBtn{
@@ -146,8 +102,23 @@ button:hover{transform:scale(1.08);}
 }
 #backBtn:hover{transform:scale(1.1);}
 
+/* CONTENT BOX */
+#content{
+    border:3px solid;
+    border-image:linear-gradient(45deg,#00ffcc,#ff00ff,#ff0000,#00ffee) 1;
+    padding:20px;
+    border-radius:20px;
+    margin-top:20px;
+
+    background:linear-gradient(145deg,#0b0b0b,#111,#0a0a0a);
+}
+
 /* TABLE */
-table{margin:auto;border-collapse:collapse;margin-top:20px;}
+table{
+    margin:auto;
+    border-collapse:collapse;
+    margin-top:20px;
+}
 th,td{border:1px solid #00ffe1;padding:10px 15px;}
 th{color:#ffd700;text-shadow:0 0 10px #ffd700;}
 tr:hover{background:#111;}
@@ -161,90 +132,81 @@ tr:hover{background:#111;}
 .rainbowName{
     font-weight:bold;
     background:linear-gradient(90deg,red,orange,yellow,lime,cyan,blue,magenta);
-    -webkit-background-clip:text;
-    color:transparent;
+    -webkit-background-clip:text;color:transparent;
     font-size:17px;
 }
 
-/* FAMILY RULES BOX */
+/* RULE BOX */
 .rulesBox{
     border:4px solid;
     border-image:linear-gradient(45deg,#ff0000,#00ffcc,#ff00ff,#ffff00) 1;
     padding:25px;
     border-radius:20px;
     margin-top:15px;
-    background:#0b0b0b;
+    
+    background:url("https://images.unsplash.com/photo-1542751371-adc38448a05e");
+    background-size:cover;
+    background-position:center;
+
+    box-shadow:0 0 20px #ff00ff inset,0 0 20px #00ffee inset;
 }
 .ruleColor{
     background:linear-gradient(90deg,#ff0000,#ff9900,#ffff00,#00ff88,#00ccff,#cc00ff);
-    -webkit-background-clip:text;
-    color:transparent;
+    -webkit-background-clip:text;color:transparent;
+    font-weight:bold;line-height:28px;
+}
+
+/* ADMIN PANEL INPUT DESIGN */
+
+#content input{
+    border:2px solid #00ffee;
+    background:#0a0a0a;
+    color:#00ffee;
     font-weight:bold;
-    line-height:28px;
+    text-align:center;
+    box-shadow:0 0 10px #00ffee;
 }
 
-/* LOGIN PAGE BACKGROUND */
-#loginPage{
-    background:url("https://images.unsplash.com/photo-1520034475321-cbe63696469a05e?auto=format&fit=crop&w=1500&q=80");
-    background-size:cover;
-    background-position:center;
+/* INPUT FOCUS */
+
+#content input:focus{
+    border:2px solid #ff00cc;
+    box-shadow:0 0 15px #ff00cc,0 0 25px #ff00cc;
 }
 
-/* DASHBOARD BACKGROUND */
-#dashboard{
-    background:url("https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1500&q=80");
-    background-size:cover;
-    background-position:center;
-}
+/* ADMIN TITLES */
 
-/* MEMBERS / PAGES BACKGROUND */
-#page{
-    background:url("https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1500&q=80");
-    background-size:cover;
-    background-position:center;
-}
-
-/* ADMIN PANEL BUTTONS (ADD MEMBER / ADD DEPOSIT) */
-
-#content button{
-
-    background:linear-gradient(45deg,#00ffee,#0066ff);
-    color:white;
-    font-weight:bold;
-    border:none;
-    padding:14px;
-    width:220px;
-    border-radius:12px;
-    cursor:pointer;
-    margin:10px;
-    box-shadow:0 0 15px #00ffee,0 0 30px #0066ff;
-    transition:0.3s;
-
-}
-
-#content button:hover{
-
-    transform:scale(1.1);
-    box-shadow:0 0 25px #00ffee,0 0 45px #0066ff;
-
+#content h3{
+    color:#00ffee;
+    text-shadow:0 0 10px #00ffee;
 }
 
 /* ADD MEMBER BUTTON */
 
 #content button:nth-of-type(1){
-
-    background:linear-gradient(45deg,#00ff88,#00ffaa);
+    background:linear-gradient(45deg,#00ff88,#00ffee);
     color:black;
-    box-shadow:0 0 20px #00ff88,0 0 40px #00ffaa;
-
+    box-shadow:0 0 20px #00ff88,0 0 40px #00ffee;
 }
 
 /* ADD DEPOSIT BUTTON */
 
 #content button:nth-of-type(2){
-
     background:linear-gradient(45deg,#ff00cc,#ff3399);
     color:white;
     box-shadow:0 0 20px #ff00cc,0 0 40px #ff3399;
+}
 
+/* BUTTON HOVER */
+
+#content button:hover{
+    transform:scale(1.08);
+} 
+
+/* FAMILY WAR BACKGROUND */
+
+.warBg{
+    background:url("https://images.unsplash.com/photo-1504198453319-5ce911bafcde?auto=format&fit=crop&w=1500&q=80");
+    background-size:cover;
+    background-position:center;
 }
