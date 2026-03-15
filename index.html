@@ -1,58 +1,44 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>Ghost Master Family</title>
 <link rel="stylesheet" href="style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-
 <body>
 
+<!-- LOGIN PAGE -->
 <div id="loginPage">
-
-<h1>Ghost Master Family</h1>
-
-<input id="name" placeholder="Game Name">
-<input id="rank" placeholder="Rank">
-<input id="password" type="password" placeholder="Password">
-
-<button onclick="login()">LOGIN</button>
-
+    <h1>Ghost Master Family</h1>
+    <input id="name" placeholder="Game Name">
+    <input id="rank" placeholder="Rank">
+    <input id="password" type="password" placeholder="Password">
+    <button onclick="login()">LOGIN</button>
 </div>
 
-
+<!-- DASHBOARD -->
 <div id="dashboard" style="display:none">
-
-<h2 id="welcome"></h2>
-
-<div class="menu">
-
-<button onclick="openPage('members')">Members</button>
-<button onclick="openPage('players')">Players Info</button>
-<button onclick="openPage('deposit')">Family Rules</button>
-<button id="staffBtn" onclick="openPage('staff')" style="display:none">Senior Staff Work Rules</button>
-<button id="deputyBtn" onclick="openPage('deputy')" style="display:none">Deputy Rules</button>
-<button id="adminBtn" onclick="openPage('admin')">Admin Panel</button>
-<button onclick="logout()">Logout</button>
-
+    <h2 id="welcome"></h2>
+    <div class="menu">
+        <button onclick="openPage('members')">Members</button>
+        <button onclick="openPage('players')">Players Info</button>
+        <button onclick="openPage('warRules')">Family War Rules</button>
+        <button onclick="openPage('deputyRules')">Deputy Rules</button>
+        <button onclick="openPage('staffRules')">Senior Staff Rules</button>
+        <button onclick="openPage('warning')">Warning</button>
+        <button id="adminBtn" onclick="openPage('admin')">Admin Panel</button>
+        <button onclick="logout()">Logout</button>
+    </div>
 </div>
 
-</div>
-
-
+<!-- PAGE CONTENT -->
 <div id="page" style="display:none">
-
-<h2 id="title"></h2>
-
-<div id="content"></div>
-
-<button id="backBtn" onclick="back()">Back</button>
-
+    <h2 id="title"></h2>
+    <div id="content"></div>
+    <button id="backBtn" onclick="back()">Back</button>
 </div>
 
 <script src="script.js"></script>
-
 </body>
 </html>
