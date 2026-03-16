@@ -29,7 +29,16 @@ function openDashboard(){
     document.getElementById("loginPage").style.display="none";
     document.getElementById("dashboard").style.display="block";
     document.getElementById("welcome").innerHTML="Welcome "+user.name;
-    if(user.rank<10){ document.getElementById("adminBtn").style.display="none"; }
+
+    // Admin panel only rank 10
+    if(user.rank<10){
+        document.getElementById("adminBtn").style.display="none";
+    }
+
+    // Deputy rules only rank 9
+    if(user.rank!=9){
+        document.getElementById("deputyBtn").style.display="none";
+    }
 }
 
 function openPage(page){
