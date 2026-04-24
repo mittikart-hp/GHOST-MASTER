@@ -1,210 +1,1931 @@
+/* ===== BODY ===== */
+html, body{
+    height:100%;
+    margin:0;
+    padding:0;
+}
+
 body{
-    background:linear-gradient(135deg,#050505,#0a0a0a,#111);
-    color:white;
+    margin:0;
     font-family:Arial;
+    background:#e0e0e0;
     text-align:center;
-    overflow-x:hidden;
+}
+
+/* ===== BACK BUTTON ===== */
+.back-btn{
+    display:block;
+    margin:20px auto;
+    padding:10px 20px;
+    border:none;
+    border-radius:20px;
+    background:#001f5c;
+    color:#00ccff;
+    font-weight:bold;
+    box-shadow:0 0 15px #00ccff;
+}
+
+/* ===== DELETE BUTTON ===== */
+.delete-btn{
+    background:white !important;
+    color:black !important;
+    border:none;
+    padding:10px 25px;
+    border-radius:30px;
+    font-weight:bold;
+    box-shadow:0 0 10px white;
+}
+//* ===== ADD TASK BUTTON ===== */
+#taskPage .login-btn{
+    width:90%;
+    max-width:350px;
+    margin:15px auto;
+    display:block;
+
+    padding:14px;
+    border-radius:25px;
+    border:none;
+
+    background:#00eaff;
+    color:black;
+    font-weight:bold;
+    font-size:16px;
+
+    box-shadow:none;   /* no glow */
+}ius:20px;
+    background:#00eaff;
+    color:black;
+    font-weight:bold;
+}
+
+/* ===== LOGIN ===== */
+.login-container{
+    width:95%;
+    max-width:420px;   /* bada size */
+    margin:30px auto;
+    padding:30px;
+    border-radius:25px;
+
+    border:3px solid transparent;
+white
+    background:
+      linear-gradient(black, black) padding-box,
+      linear-gradient(45deg, red, orange, yellow, lime, cyan, blue, violet) border-box;
+
+/* TASK PAGE BACKGROUND */
+#taskPage{
+    min-height:100%;
+    background:linear-gradient(135deg,#2b5876,#4e4376);
+    padding:25px;
 }
 
 /* TITLE */
-h1{
-    color:#00f7ff;
-    font-size:40px;
-    text-shadow:0 0 25px #00f7ff,0 0 50px #00ffee;
-    animation:glow 2s infinite alternate;
-}
-h2{
-    color:#ff00ff;
-    text-shadow:0 0 15px #ff00ff;
+.task-title{
+    color:#00f0ff;
+    font-size:32px;
+    text-align:center;
+
+    text-shadow:
+        0 0 10px #00f0ff,
+        0 0 25px #ff00cc;
 }
 
-/* GLOW ANIMATION */
-@keyframes glow{
-    from{ text-shadow:0 0 10px #00f7ff; }
-    to{ text-shadow:0 0 40px #00ffee,0 0 80px #00ffee; }
+/* TABLE */
+.task-table{
+    width:95%;
+    margin:20px auto;
+    border-collapse:collapse;
+    background:white;
 }
 
-/* LOGIN PAGE */
-#loginPage{
-    border:3px solid;
-    border-image:linear-gradient(45deg,#ff0000,#00ffcc,#ff00ff,#ffff00) 1;
+/* HEADER */
+.task-table th{
+    background:#cfd8dc;
+    padding:15px;
+    font-size:16px;
+}
+
+/* BODY */
+.task-table td{
+    padding:15px;
+    border-bottom:1px solid #ccc;
+}
+
+/* STATUS COLORS */
+.status-not {
+    background:#ddd;
+    color:#333;
+}
+
+.status-progress {
+    background:#fff3cd;
+    color:#856404;
+}
+
+.status-blocked {
+    background:#f8d7da;
+    color:#721c24;
+}
+
+.status-review {
+    background:#d1ecf1;
+    color:#0c5460;
+}
+
+.status-done {
+    background:#d4edda;
+    color:#155724;
+}
+
+/* DROPDOWN STYLE */
+select {
+    padding:6px 10px;
+    border-radius:15px;
+    border:none;
+    font-weight:bold;
+}
+
+select.status-not,
+select.status-progress,
+select.status-blocked,
+select.status-review,
+select.status-done{
+    padding:6px 10px;
+    border-radius:15px;
+    font-weight:bold;
+}
+
+/* DELETE BUTTON */
+.delete-btn{
+    background:red !important;
+    color:white !important;
+    border:none;
+    padding:6px 12px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.delete-btn:hover{
+    background:#cc0000 !important;
+}
+
+#taskPage{
+    min-height:100vh;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
     padding:25px;
-    margin:20px;
-    border-radius:20px;
-
-    backdrop-filter:blur(10px);
-    background:rgba(0,0,0,0.5);
-    box-shadow:0 0 30px rgba(0,255,255,0.3);
 }
 
-/* INPUTS */
-input{
-    display:block;
-    margin:12px auto;
-    padding:14px;
-    width:260px;
-    border-radius:12px;
-    border:2px solid #00ffee;
-    background:#111;
+#taskTable{
+    width:100%;
+    border-collapse: collapse;
+    background:#ffffff;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+#taskTable td, #taskTable th{
+    padding:10px;
+    border:1px solid #ccc;
+    text-align:center;
+}
+
+.status-not{
+    background:#999;
+    color:#fff;
+}
+
+.status-progress{
+    background:#ff9800;
+    color:#fff;
+}
+
+.status-blocked{
+    background:#f44336;
+    color:#fff;
+}
+
+.status-review{
+    background:#2196f3;
+    color:#fff;
+}
+
+.status-done{
+    background:#4caf50;
+    color:#fff;
+}
+button{
+    padding:6px 10px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.delete-btn{
+    background:red;
     color:white;
     font-weight:bold;
-    outline:none;
-    transition:0.3s;
 }
-input:focus{
-    transform:scale(1.05);
-    box-shadow:0 0 15px #00ffee;
+    box-shadow:0 0 40px rgba(0,255,255,0.4);
 }
 
-/* BUTTONS */
-button{
+/* Neon Welcome Box */
+.welcome-box{
+    width:80%;
+    margin:20px auto;
+    padding:15px;
+
+    color:#00eaff;
+    font-size:22px;
     font-weight:bold;
-    padding:12px;
-    width:220px;
-    border:none;
+
+    border:2px solid #00eaff;
+    border-radius:15px;
+
+    box-shadow:
+        0 0 5px #00eaff,
+        0 0 10px #00eaff,
+        0 0 20px #00eaff;
+
+    background:rgba(0,0,0,0.2);
+}
+
+/* Title */
+.title{
+    font-size:38px;
+    color:#00f0ff;
+    text-shadow:
+        0 0 15px #00f0ff,
+        0 0 30px #00f0ff;
+}
+
+/* Layout */
+.box{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;              /* equal gap */
+    margin:18px 0;
+}
+
+/* LEFT BUTTON (Name, Rank, Password) */
+.btn{
+    width:140px;
+    height:50px;
+    border-radius:30px;
+    font-size:15px;
+}
+/* ===== COMMON INPUT STYLE ===== */
+input, select{
+    width:180px;
+    height:50px;
+    padding:10px;
+
+    border-radius:12px;   /* full round hata diya */
+    border:2px solid transparent;
+
+    color:white;
+    outline:none;
+}
+
+/* ===== NAME INPUT (BLUE MATCH) ===== */
+/* ===== NAME INPUT FINAL STYLE ===== */
+#name{
+    width:150px;          /* chhota size */
+    height:45px;
+
+    background:#ff4d4d;   /* halka red */
+    color:white;
+
+    border:2px solid #ff1a1a;
     border-radius:10px;
+
+    font-size:18px;       /* bada text */
+    font-weight:bold;
+
+    padding:8px 10px;
+
+    box-shadow:
+        0 0 5px #ff4d4d;  /* light glow only */
+}
+
+/* placeholder color */
+#name::placeholder{
+    color:#ffe6e6;
+}
+/* ===== RANK SELECT (YELLOW MATCH) ===== */
+#rank{
+    width:180px;
+    height:45px;
+
+    background:linear-gradient(45deg,#ffd700,#ffb300);
+    color:black;
+
+    border:2px solid #ffd700;
+    border-radius:12px;
+
+    font-size:18px;      /* 👈 text bada */
+    font-weight:bold;
+
+    padding:0 10px;
+
+    box-shadow:
+        0 0 5px #ffd700;   /* 👈 glow kam kiya (clean look) */
+}
+
+/* ===== PASSWORD INPUT (PINK MATCH) ===== */
+#password{
+    background:linear-gradient(45deg,#ff00cc,#ff66ff);
+    border-color:#ff00cc;
+
+    box-shadow:
+        0 0 5px #ff00cc,
+        0 0 10px #ff66ff;
+}
+/* Buttons */
+.btn{
+    padding:12px;
+    border:none;
+    border-radius:50px;
+    color:white;
     margin:10px;
+    width:80%;
+    max-width:300px;
+    font-size:18px;
+    font-weight:bold;
+}
+.btn{
+    padding:12px;
+    border:none;
+    border-radius:50px;
+    color:white;
+    margin:10px;
+    width:80%;
+    max-width:300px;
+    font-size:18px;
+    font-weight:bold;
+}
+/* Button Colors */
+.btn1{background: linear-gradient(45deg,#ff00cc,#3333ff);}
+.btn2{background: linear-gradient(45deg,#00f2fe,#4facfe);}
+.btn3{background: linear-gradient(45deg,#f7971e,#ffd200);}
+.btn4{background: linear-gradient(45deg,#ff416c,#ff4b2b);}
+.btn5{background: linear-gradient(45deg,#43cea2,#185a9d);}
+.btn6{background: linear-gradient(45deg,#8e2de2,#4a00e0);}
+.btn7{background: linear-gradient(45deg,#ff00cc,#3333ff);}
+.btn8{background:#ff2b2b;}
+
+.logout{
+    background:black;
+    color:red;
+    border:2px solid red;
+}
+
+/* Password Box */
+.pass-box{
+    width:180px;
+    height:50px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    border-radius:12px;
+    padding:0 10px;
+}
+
+/* remove extra black overlap */
+.pass-box input{
+    background:transparent !important;
+    border:none !important;
+    box-shadow:none !important;
+}
+/* Eye Icon */
+.eye{
+    width:30px;
+    height:30px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+}
+
+.eye svg{
+    width:20px;
+    height:20px;
+    fill:Red;
+}
+
+/* Login Button */
+.login-btn{
+    width:90%;
+    height:55px;
+    margin-top:20px;
+
+    border-radius:30px;
+
+    background:linear-gradient(45deg,#0066ff,#00f0ff);
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+
+    box-shadow:
+        0 0 15px #00f0ff,
+        0 0 30px #0066ff;
+}
+
+/* Dashboard */
+.container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin-top:20px;
+}
+
+/* ================= RED REPORT PRO UI ================= */
+
+/* Background override only for report page */
+#reportPage{
+    background:#0b0f2a;
+    color:white;
+    min-height:100vh;
+    padding-bottom:20px;
+}
+
+/* Tabs */
+#reportPage .tabs button{
+    margin:10px;
+    padding:12px 20px;
+    border-radius:25px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+/* Tab Colors */
+#reportPage .all{
+    background:#444;
+    color:white;
+}
+#reportPage .all:hover{
+    box-shadow:0 0 10px white;
+}
+
+#reportPage .against{
+    background:red;
+}
+#reportPage .against:hover{
+    box-shadow:0 0 15px red;
+}
+
+#reportPage .by{
+    background:#00ccff;
+    color:black;
+}
+#reportPage .by:hover{
+    box-shadow:0 0 15px #00ccff;
+}
+
+/* Create Button */
+#createBox button,
+#reportPage .create-btn{
+    background:linear-gradient(45deg,yellow,orange);
+    color:black;
+    box-shadow:0 0 10px yellow;
+    border-radius:25px;
+}
+#reportPage .create-btn:hover{
+    box-shadow:0 0 25px yellow;
+}
+
+/* Inputs */
+#reportPage input,
+#reportPage textarea{
+    width:85%;
+    max-width:400px;
+    margin:10px auto;
+    display:block;
+    border-radius:12px;
+}
+
+/* Report Card */
+.report-card{
+    border:2px solid yellow;
+    margin:20px auto;
+    padding:15px;
+    border-radius:15px;
+    background:#111;
+    width:90%;
+    max-width:500px;
+    box-shadow:0 0 10px yellow;
+}
+
+/* Reply */
+.reply{
+    border:2px solid gold;
+    margin-top:10px;
+    padding:10px;
+    border-radius:10px;
+    background:#1a1a1a;
+    box-shadow:0 0 10px gold;
+}
+// Delete Report button 
+.btn{
+    padding:12px;
+    border:none;
+    border-radius:50px;
+    color:white;
+    margin:10px;
+    width:80%;
+    max-width:300px;
+    font-size:18px;
+    font-weight:bold;
+}
+/* REPORT INPUT COLORS */
+#playerName{
+    background:#111 !important;
+    color:red !important;
+    border:3px solid red !important;
+    box-shadow:0 0 10px red;
+    font-size:22px;
+    font-weight:bold;
+}
+
+#reason{
+    background:#111 !important;
+    color:yellow !important;
+    border:3px solid yellow !important;
+    box-shadow:0 0 10px yellow;
+    font-size:22px;
+    font-weight:bold;
+}
+
+#imgLink{
+    background:#111 !important;
+    color:#00ccff !important;
+    border:3px solid #00ccff !important;
+    box-shadow:0 0 10px #00ccff;
+    font-size:22px;
+    font-weight:bold;
+}
+
+#playerName::placeholder{
+    color:red;
+}
+#reason::placeholder{
+    color:yellow;
+}
+#imgLink::placeholder{
+    color:#00ccff;
+}
+/* Back Button */
+#reportPage button:last-child{
+    background:black;
+    color:red;
+    border:2px solid red;
+    border-radius:25px;
+}
+
+/* ===== REPLY BUTTON ===== */
+.report-card button:first-of-type{
+    background:#555 !important;
+    color:white;
+}
+.report-card button:first-of-type:hover{
+    box-shadow:0 0 10px #999;
+}
+/* ===== BACK BUTTON (DARK BLUE NEON + BIG) ===== */
+#reportPage button:last-child{
+     !important;   /* dark blue */
+    color:#00ccff;
+    border:2px solid #00ccff;
+
+    padding:14px 30px;   /* size  */
+    font-size:16px;
+    font-weight:bold;
+    border-radius:30px;
+
+    box-shadow:
+        0 0 10px #00ccff,
+        0 0 20px #00ccff,
+        0 0 40px #001f5c;
+
+    transition:0.3s;
+}
+
+/* Hover effect */
+#reportPage button:last-child:hover{
+    box-shadow:
+        0 0 20px #00ccff,
+        0 0 40px #00ccff,
+        0 0 60px #001f5c;
+
+    transform:scale(1.05);
+}
+
+/* ===== RAINBOW WELCOME BOX ===== */
+.welcome-box{
+    width:80%;
+    margin:20px auto;
+    padding:15px;
+
+    font-size:22px;
+    font-weight:bold;
+
+    border-radius:15px;
+
+    /* Rainbow Border */
+    background:linear-gradient(
+        90deg,
+        red, orange, yellow, green, cyan, blue, violet, red
+    );
+    background-size:400%;
+    animation:rainbowMove 6s linear infinite;
+
+    padding:3px; /* border thickness */
+}
+
+/* Inner content */
+.welcome-box::before{
+    content:"";
+    display:block;
+    background:rgba(0,0,0,0.6);
+    border-radius:12px;
+    padding:15px;
+}
+
+/* Text fix */
+.welcome-box{
+    color:#00eaff;
+    text-shadow:0 0 10px #00eaff;
+}
+
+/* Animation */
+@keyframes rainbowMove{
+    0%{background-position:0%}
+    100%{background-position:400%}
+}
+
+select{
+    padding:12px;
+    border:none;
+    border-radius:12px;
+    width:160px;
+}
+
+/* Password box */
+.pass-box{
+    width:180px;
+    height:50px;
+    display:flex;
+    align-items:center;
+    background:#111;
+    border-radius:12px;
+    border:2px solid white;
+}
+
+.pass-box input{
+    border:none;
+    outline:none;
+    padding:12px;
+    width:120px;
+}
+
+.pass-box span{
+    padding:10px;
+    cursor:pointer;
+}
+
+.member-title{
+  background:linear-gradient(90deg,purple,blue);
+  color:white;
+  padding:10px;
+}
+
+.member-table{
+  width:95%;
+  margin:auto;
+  border-collapse:collapse;
+  background:white;
+}
+
+.member-table th{
+  background:#e8c3a5;
+  padding:10px;
+}
+
+.member-table td{
+  padding:10px;
+  border-bottom:1px solid #ccc;
+}
+
+.rank{
+  color:purple;
+  font-weight:bold;
+}
+#dashboard{
+    min-height:100vh;
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+}
+
+/* user info neon */
+#userInfo{
+    color:#00eaff;
+    text-shadow:
+        0 0 5px #00eaff,
+        0 0 10px #00eaff,
+        0 0 20px #00eaff;
+}
+
+/* buttons neon glow */
+.container .btn{
+    transition:0.3s;
+}
+
+.container .btn:hover{
+    box-shadow:
+        0 0 10px white,
+        0 0 20px currentColor,
+        0 0 30px currentColor;
+    transform:scale(1.05);
+} 
+
+/* MEMBER PAGE BACK BUTTON (NEON DARK BLUE) */
+#memberPage button{
+    background:#001f5c;
+    color:#00ccff;
+    border:2px solid #00ccff;
+
+    padding:14px 30px;
+    font-size:16px;
+    font-weight:bold;
+    border-radius:30px;
+
+    margin-top:40px;   /*  ye line add karo */
+
+    box-shadow:
+        0 0 10px #00ccff,
+        0 0 20px #00ccff,
+        0 0 40px #001f5c;
+
+    transition:0.3s;
+}
+}
+
+/* hover effect */
+#memberPage button:hover{
+    box-shadow:
+        0 0 20px #00ccff,
+        0 0 40px #00ccff,
+        0 0 60px #001f5c;
+
+    transform:scale(1.05);
+} 
+/* WAR BUTTON BASE */
+.war-btn{
+    padding:6px 12px;
+    margin:3px;
+    border:none;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
     cursor:pointer;
     transition:0.3s;
 }
 
-/* LOGIN BUTTON */
-#loginPage button{
-    background:linear-gradient(45deg,#003cff,#00ffee);
-    color:white;
-    box-shadow:0 0 15px #00ffee;
+/* ================= ADD BUTTON (GREEN NEON) ================= */
+.war-btn.add{
+    background:linear-gradient(45deg,#00ff99,#00cc66) !important;
+    color:black !important;
+    border:2px solid #006633 !important;
+
+    box-shadow:
+        inset 3px 0 8px #006633,
+        0 0 10px #00ff99,
+        0 0 20px #00ff99,
+        0 0 40px #00ff99 !important;
 }
-#loginPage button:hover{
+
+.war-btn.add:hover{
     transform:scale(1.1);
-    box-shadow:0 0 30px #00ffee;
+
+    box-shadow:
+        inset 4px 0 12px #006633,
+        0 0 20px #00ff99,
+        0 0 40px #00ff99,
+        0 0 60px #00ff99 !important;
 }
 
-/* DASHBOARD BUTTONS */
-.menu button{
-    display:block;
-    margin:12px auto;
-    padding:15px;
-    width:240px;
-    border-radius:14px;
-    font-size:16px;
+/* ================= REMOVE BUTTON (RED NEON) ================= */
+.war-btn.remove{
+    background:linear-gradient(45deg,#ff0000,#ff3333) !important;
+    color:white !important;
+    border:2px solid #8b0000 !important;
+
+    box-shadow:
+        inset 3px 0 8px #8b0000,
+        0 0 10px #ff0000,
+        0 0 20px #ff0000,
+        0 0 40px #ff0000 !important;
 }
 
-.menu button:hover{
+.war-btn.remove:hover{
     transform:scale(1.1);
-    filter:brightness(1.2);
+
+    box-shadow:
+        inset 4px 0 12px #8b0000,
+        0 0 20px #ff0000,
+        0 0 40px #ff0000,
+        0 0 60px #ff0000 !important;
 }
 
-/* COLOR BUTTONS */
-.menu button:nth-child(1){background:#ff0066;box-shadow:0 0 15px #ff0066;}
-.menu button:nth-child(2){background:#00ccff;box-shadow:0 0 15px #00ccff;}
-.menu button:nth-child(3){background:#00ff88;color:black;box-shadow:0 0 15px #00ff88;}
-.menu button:nth-child(4){background:#ff9500;color:black;box-shadow:0 0 15px #ff9500;}
-.menu button:nth-child(5){background:#ffcc00;color:black;box-shadow:0 0 15px #ffcc00;}
-.menu button:nth-child(6){background:#ff33ff;color:black;box-shadow:0 0 15px #ff33ff;}
-.menu button:nth-child(7){background:#ff3333;box-shadow:0 0 15px #ff3333;}
-.menu button:last-child{background:#ff0000;color:white;box-shadow:0 0 20px #ff0000;}
+/*  REMOVE THIS (conflict create karta hai)
+.war-btn:hover{
+    transform:scale(1.1);
+    box-shadow:
+        0 0 10px white,
+        0 0 20px currentColor,
+        0 0 40px currentColor;
+}
+*/
+
+/* RULES PAGE BACKGROUND */
+#rulesPage{
+  min-height:100vh;
+  background:linear-gradient(135deg,#4facfe,#00f2fe);
+  padding:20px;
+}
+
+/* TITLE */
+.rules-title{
+  color:#ff00cc;
+  font-size:28px;
+  text-shadow:
+    0 0 10px #ff00cc,
+    0 0 20px #ff00cc;
+  border-bottom:4px solid #6a00ff;
+  display:inline-block;
+  padding-bottom:5px;
+}
+
+/* CONTAINER */
+.rules-container{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:20px;
+  margin-top:20px;
+}
+
+/* BOX */
+.rules-box{
+  background:white;
+  width:300px;
+  padding:15px;
+  border-radius:15px;
+  box-shadow:0 0 10px rgba(0,0,0,0.3);
+  text-align:left;
+}
+
+.rules-box p{
+  font-size:14px;
+  margin:10px 0;
+}
+
+/* DISCORD PAGE */
+.discord-page{
+  min-height:100vh;
+  background:#0d1117;
+  padding:20px;
+  text-align:center;
+}
+
+/* TITLE */
+.discord-title{
+  color:#00f0ff;
+  font-size:26px;
+  margin-bottom:20px;
+
+  text-shadow:
+    0 0 10px #00f0ff,
+    0 0 20px #00f0ff;
+}
+
+/* LAYOUT */
+.discord-rules{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:15px;
+}
+
+/* CARD */
+.discord-card{
+  background:#161b22;
+  border-radius:12px;
+  padding:15px;
+  width:300px;
+  text-align:left;
+
+  border:1px solid #30363d;
+
+  box-shadow:
+    0 0 10px rgba(0,255,255,0.2);
+}
+
+/* RULE TEXT */
+.discord-card p{
+  margin:10px 0;
+  font-size:14px;
+  color:#c9d1d9;
+}
+
+/* NUMBER BADGE */
+.discord-card span{
+  background:#00f0ff;
+  color:black;
+  padding:3px 8px;
+  border-radius:6px;
+  font-weight:bold;
+  margin-right:5px;
+}
+
+/* HEADING */
+.discord-card h3{
+  color:#58a6ff;
+  margin-bottom:10px;
+}
 
 /* BACK BUTTON */
-#backBtn{
-    background:linear-gradient(45deg,#ff00cc,#3333ff,#00ffee);
-    color:white;
-    padding:12px;
-    width:180px;
-    border-radius:12px;
-    box-shadow:0 0 15px #ff00cc;
-}
-#backBtn:hover{
-    transform:scale(1.1);
-    box-shadow:0 0 30px #ff00cc;
+.discord-back{
+  margin-top:25px;
+  padding:10px 25px;
+  border:none;
+  border-radius:25px;
+
+  background:#00f0ff;
+  color:black;
+  font-weight:bold;
+
+  box-shadow:
+    0 0 10px #00f0ff,
+    0 0 20px #00f0ff;
+
+  transition:0.3s;
 }
 
-/* CONTENT BOX */
-#content{
-    border:3px solid;
-    border-image:linear-gradient(45deg,#00ffcc,#ff00ff,#ff0000,#00ffee) 1;
-    padding:20px;
+.discord-back:hover{
+  transform:scale(1.1);
+
+  box-shadow:
+    0 0 20px #00f0ff,
+    0 0 40px #00f0ff;
+}
+
+/* SINGLE BOX */
+.discord-single{
+  background:#161b22;
+  border-radius:15px;
+  padding:20px;
+  width:90%;
+  max-width:500px;
+  margin:auto;
+  text-align:left;
+
+  border:1px solid #30363d;
+
+  box-shadow:
+    0 0 10px rgba(0,255,255,0.2),
+    0 0 30px rgba(0,255,255,0.1);
+}
+
+/* TEXT */
+.discord-single p{
+  color:#c9d1d9;
+  font-size:14px;
+  margin:12px 0;
+  line-height:1.4;
+}
+
+/* NUMBER BADGE */
+.discord-single span{
+  background:#00f0ff;
+  color:black;
+  padding:3px 8px;
+  border-radius:6px;
+  font-weight:bold;
+  margin-right:6px;
+}
+
+/* ===== RANK COLORS ===== */
+.rank-1  { color:#6e7681; }   /* Unverified */
+.rank-2  { color:#9be9a8; }   /* Verified */
+.rank-3  { color:#00ffa6; }   /* Subscriber */
+.rank-4  { color:#58a6ff; }   /* Sr Member */
+.rank-5  { color:#1f6feb; }   /* Manager */
+.rank-6  { color:#a371f7; }   /* Deputy Leader */
+.rank-7  { color:#bc8cff; }   /* Leader */
+.rank-8  { color:#ff7b72; }   /* Staff */
+.rank-9  { color:#ff4d4d; }   /* Admin 1 */
+.rank-10 { color:#ff0000; }   /* Admin 2 */
+.rank-11 { color:#ff8800; }   /* Admin 3 */
+.rank-12 { color:#ffd700; }   /* Curator */
+.rank-13 { color:#00ffff; }   /* Sr Curator */
+.rank-14 { color:#ff00cc; }   /* Assistant Owner */
+.rank-15 { color:ff1493; text-shadow:0 0 10px #fff; } /* Owner */
+
+/* BLACK BACKGROUND */
+body{
+    background:black;
+    margin:0;
+    font-family:Arial;
+}
+
+/* MAIN BOX */
+.login-container{
+    width:90%;
+    max-width:350px;
+    margin:40px auto;
+    padding:25px;
+    text-align:center;
     border-radius:20px;
+
+    border:3px solid transparent;
+
+    background:
+      linear-gradient(black, black) padding-box,
+      linear-gradient(45deg, red, orange, yellow, lime, cyan, blue, violet) border-box;
+}
+
+/* TITLE */
+.title{
+    color:#00f0ff;
+    font-size:32px;
+    text-shadow:
+        0 0 10px #00f0ff,
+        0 0 25px #00f0ff;
+}
+
+/* INPUT BOX */
+.input-box{
+    display:flex;
+    align-items:center;
+    border:2px solid white;
+    border-radius:15px;
+    margin:20px 0;
+    padding:10px;
+}
+
+/* ICON */
+.icon{
+    font-size:18px;
+    margin-right:10px;
+}
+
+/* INPUT */
+.input-box input,
+.input-box select{
+    flex:1;
+    background:transparent;
+    border:none;
+    outline:none;
+    color:white;
+    font-size:14px;
+}
+
+/* LOGIN BUTTON */
+.login-btn{
+    width:100%;
+    padding:12px;
+    border-radius:25px;
+    border:none;
+
+    background:linear-gradient(45deg,#0066ff,#00f0ff);
+    color:white;
+    font-weight:bold;
+
+    box-shadow:
+        0 0 10px #00f0ff,
+        0 0 20px #0066ff;
+
+    transition:0.3s;
+}
+
+.login-btn:hover{
+    transform:scale(1.05);
+    box-shadow:
+        0 0 20px #00f0ff,
+        0 0 40px #0066ff;
+}
+
+/* NAME BUTTON (BLUE NEON) */
+.blue{
+    background:linear-gradient(45deg,#00c6ff,#0072ff);
+    color:white;
+    box-shadow:
+        0 0 10px #00c6ff,
+        0 0 20px #0072ff,
+        0 0 40px #0072ff;
+}
+
+/* RANK BUTTON (YELLOW NEON) */
+.red{
+    background:linear-gradient(45deg,#ffd700,#ffb300);
+    color:black;
+    box-shadow:
+        0 0 10px #ffd700,
+        0 0 20px #ffb300,
+        0 0 40px #ffd700;
+}
+
+/* PASSWORD BUTTON (PINK NEON) */
+.pink{
+    background:linear-gradient(45deg,#ff00cc,#ff66ff);
+    color:white;
+    box-shadow:
+        0 0 10px #ff00cc,
+        0 0 20px #ff66ff,
+        0 0 40px #ff00cc;
+}
+#msg{
+    color:#ff4d4d;
+    font-size:24px;      /* 👈 bada text */
+    font-weight:bold;
+
+    margin-top:12px;
+
+    text-align:center;
+
+    text-shadow:
+        0 0 5px #ff4d4d,
+        0 0 10px #ff4d4d;
+}
+
+.verified-yes{
+    color:#0a3d62;   /* premium dark blue */
+}
+
+.verified-no{
+    color:#e74c3c;   /* softer red */
+}
+
+.discord-title{
+  color:#ff4fd8;
+  text-shadow:
+    0 0 5px #ff4fd8,
+    0 0 10px #ff4fd8;
+}
+
+.discord-back{
+  margin-top:25px;
+  padding:12px 30px;
+
+  border:none;
+  border-radius:25px;
+
+  background:#ff0000;   /* red */
+  color:white;
+  font-weight:bold;
+
+  transition:0.3s;
+}
+
+/* hover effect */
+.discord-back:hover{
+  background:#cc0000;
+}
+
+.discord-single{
+  width:95%;           /* full width */
+  max-width:none;      /* restriction hata diya */
+  margin:20px auto;
+
+  padding:25px;
+  border-radius:10px;
+
+  background:#161b22;
+}
+.discord-single p{
+  font-size:18px;      /* bada text */
+  line-height:1.7;     /* spacing */
+  margin:18px 0;
+}
+
+.discord-single span{
+  font-size:16px;
+  padding:5px 12px;
+}
+#rulesPage{
+  padding:30px 15px;
+}
+
+.discord-single p{
+  border-bottom:1px solid #30363d;
+  padding-bottom:10px;
+}
+
+/* ===== TASK PAGE BACKGROUND ===== */
+#taskPage{
+    min-height:100vh;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    padding:25px;
+    color:white;
+}
+
+/* ===== TITLE ===== */
+#taskPage h2{
+    text-align:center;
+    color:#00eaff;
+    margin-bottom:20px;
+}
+
+/* ===== ADD BUTTON ===== */
+.add-btn{
+    display:block;
+    margin:10px auto 20px;
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(90deg,#00c6ff,#0072ff);
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+/* ===== TABLE ===== */
+#taskTable{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    color:black;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+/* HEADER */
+#taskTable th{
+    background:#ddd;
+    padding:10px;
+}
+
+/* ROW */
+#taskTable td{
+    padding:10px;
+    text-align:center;
+    border-bottom:1px solid #ccc;
+}
+
+/* ===== STATUS BASE ===== */
+select, .status{
+    padding:6px 10px;
+    border:none;
+    border-radius:20px;
+    font-weight:bold;
+    color:white;
+}
+
+/* ===== STATUS COLORS ===== */
+.status-not{
+    background:#9e9e9e;
+}
+
+.status-progress{
+    background:#ff9800;
+}
+
+.status-blocked{
+    background:#f44336;
+}
+
+.status-review{
+    background:#2196f3;
+}
+
+.status-done{
+    background:#4caf50;
+}
+
+/* ===== SELECT FIX ===== */
+select.status-not{background:#9e9e9e;}
+select.status-progress{background:#ff9800;}
+select.status-blocked{background:#f44336;}
+select.status-review{background:#2196f3;}
+select.status-done{background:#4caf50;}
+
+/* ===== DELETE BUTTON ===== */
+.delete-btn{
+    background:white !important;
+    color:black !important;
+    border:none;
+    padding:10px 25px;
+    border-radius:30px;
+    font-weight:bold;
+    box-shadow:0 0 10px white;
+}
+/* TASK PAGE BACK BUTTON */
+#taskPage .back-btn{
+    display:block;
+    margin:50px auto 0;   /* niche */
+    padding:16px 40px;    /* big */
+
+    background:#ff4da6;   /* pink */
+    color:white;
+
+    border:none;
+    border-radius:30px;
+
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* hover */
+#taskPage .back-btn:hover{
+    background:#e60073;
+}
+
+.btn-reply,
+.btn-delete {
+    background: #eee;
+    color: #000;
+    border: none;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+.btn-delete {
+    background: #fff;
+}
+
+html, body{
+    height:100%;
+    width:100%;
+    margin:0;
+    padding:0;
+    background:#02040f;
+}
+// === YHA SE CHANGE HAI=====
+#taskPage{
+    min-height:100vh;
+    width:100%;
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+}
+
+#taskTable{
+    width:100%;
+    background:#0a0f2c;
+}
+
+#taskTable td, 
+#taskTable th{
+    background:transparent;
+}
+
+#taskTable td{
+    background:#0a0f2c;
+    color:white;
+}
+
+#taskTable{
+    box-shadow:0 0 20px #00f0ff;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+#taskTable{
+    width:100%;
+    max-width:1000px;   /* control layout */
     margin-top:20px;
+
+    border-collapse:collapse;
+    border-radius:12px;
+    overflow:hidden;
+
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(10px);
+}
+#taskTable th{
+    padding:14px;
+    font-size:15px;
+    font-weight:bold;
 
     background:rgba(0,0,0,0.6);
-    backdrop-filter:blur(10px);
+    color:#00eaff;
 
-    animation:fadeIn 0.5s ease;
+    text-align:center;
 }
+#taskTable td{
+    padding:12px;
+    text-align:center;
 
-/* FADE ANIMATION */
-@keyframes fadeIn{
-    from{opacity:0; transform:translateY(10px);}
-    to{opacity:1; transform:translateY(0);}
-}
-
-/* TABLE */
-table{
-    margin:auto;
-    border-collapse:collapse;
-    margin-top:20px;
-}
-th,td{
-    border:1px solid #00ffe1;
-    padding:10px 15px;
-}
-th{
-    color:#ffd700;
-    text-shadow:0 0 10px #ffd700;
-}
-tr:hover{
-    background:#111;
-    transform:scale(1.02);
-}
-
-/* WAR BUTTONS */
-.warAdd{
-    background:#00ff88;
-    color:black;
-    border-radius:6px;
-    padding:6px 10px;
-    box-shadow:0 0 10px #00ff88;
-}
-.warRemove{
-    background:#ff3333;
+    border-bottom:1px solid rgba(255,255,255,0.1);
     color:white;
-    border-radius:6px;
-    padding:6px 10px;
-    box-shadow:0 0 10px #ff3333;
 }
+#taskTable th,
+#taskTable td{
+    min-width:120px;
+}
+/* BACK BUTTON FIX */
+.back-btn{
+    display:block;
+    margin:40px auto 0;   /* 👈 niche shift */
+    
+    padding:14px 35px;    /* 👈 big size */
+    
+    background:#ff4da6;   /* 👈 pink */
+    color:white;
 
-/* RAINBOW NAME */
-.rainbowName{
+    border:none;
+    border-radius:30px;
+
+    font-size:16px;
     font-weight:bold;
-    background:linear-gradient(90deg,red,orange,yellow,lime,cyan,blue,magenta);
-    -webkit-background-clip:text;
-    color:transparent;
-    animation:rainbowMove 5s linear infinite;
+
+    cursor:pointer;
 }
 
-/* RAINBOW ANIMATION */
-@keyframes rainbowMove{
-    0%{background-position:0%}
-    100%{background-position:200%}
+/* optional hover (no glow, clean) */
+.back-btn:hover{
+    background:#e60073;
+}
+/*
+/* ===== TASK PAGE FULL FIX ===== */
+#taskPage{
+    min-height:100vh;
+    width:100%;
+    padding:20px;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    box-sizing:border-box;
 }
 
-/* RULE BOX */
-.rulesBox{
-    border:4px solid;
-    border-image:linear-gradient(45deg,#ff0000,#00ffcc,#ff00ff,#ffff00) 1;
+/* ===== TITLE ===== */
+.task-title{
+    text-align:center;
+    color:#00eaff;
+    font-size:28px;
+    margin-bottom:15px;
+}
+/* ===== ADD TASK BUTTON FORCE BLUE ===== */
+#taskPage .login-btn{
+    width:95%;
+    max-width:380px;
+    margin:20px auto;
+    display:block;
+
+    padding:18px;
+    border-radius:30px;
+    border:none;
+
+    background:linear-gradient(45deg,#007bff,#00eaff) !important;
+    color:white !important;
+
+    font-weight:bold;
+    font-size:18px;
+
+    box-shadow:
+        0 0 10px #00eaff,
+        0 0 20px #007bff,
+        0 0 30px #00eaff !important;
+
+    transition:0.3s;
+}
+
+#taskPage .login-btn:hover{
+    transform:scale(1.05);
+
+    box-shadow:
+        0 0 20px #00eaff,
+        0 0 40px #007bff,
+        0 0 60px #00eaff !important;
+}
+/* ===== TABLE ===== */
+.task-table th{
+    background:#e0e0e0;
+    padding:12px;
+    font-size:14px;
+
+    color:#007bff;   /* 👈 BLUE TEXT */
+    font-weight:bold;
+border:1px solid white; 
+}
+
+.task-table td{
+    border:1px solid white;
+}
+/* HEADER */
+.task-table th{
+    background:#e0e0e0;
+    padding:12px;
+    font-size:14px;
+}
+
+/* BODY */
+.task-table td{
+    padding:12px;
+    border-bottom:1px solid #ccc;
+    text-align:center;
+}
+
+/* ===== STATUS COLORS ===== */
+.status-not{background:#999;color:#fff;}
+.status-progress{background:#ff9800;color:#fff;}
+.status-blocked{background:#f44336;color:#fff;}
+.status-review{background:#2196f3;color:#fff;}
+.status-done{background:#4caf50;color:#fff;}
+
+/* ===== DROPDOWN ===== */
+.task-table select{
+    padding:6px;
+    border-radius:10px;
+    border:none;
+    font-weight:bold;
+}
+
+/* ===== DELETE BUTTON ===== */
+.delete-btn{
+    background:red;
+    color:white;
+    border:none;
+    padding:6px 12px;
+    border-radius:6px;
+    font-weight:bold;
+}
+
+/* ===== BACK BUTTON (FINAL FIX) ===== */
+#taskPage button:last-child{
+    display:block;
+    margin:40px auto 10px auto;  /* niche push */
+    
+    padding:14px 30px;
+    font-size:16px;
+    font-weight:bold;
+
+    background:pink;
+    color:black;
+
+    border:none;
+    border-radius:25px;
+
+    box-shadow:none; /* no glow */
+}
+*/
+/* FULL TABLE BORDER WHITE */
+.task-table,
+.task-table th,
+.task-table td{
+    border:1px solid white !important;
+}
+
+/* ensure borders merge properly */
+.task-table{
+    border-collapse:collapse;
+}
+/* ===== THICK WHITE TABLE BORDERS ===== */
+.task-table{
+    border-collapse:collapse;
+}
+
+/* header */
+.task-table th{
+    background:#e0e0e0;
+    padding:14px;          /* thoda big */
+    font-size:15px;
+
+    color:#007bff;
+    font-weight:bold;
+
+    border:2px solid white;   /* 👈 thick line */
+}
+
+/* body */
+.task-table td{
+    padding:14px;          /* thoda big */
+    text-align:center;
+
+    border:2px solid white;   /* 👈 thick line */
+}
+/* ===== FULL PAGE ===== */
+#youtubePage{
+    min-height:100vh;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:linear-gradient(135deg,#8e2de2,#4a00e0);
+    text-align:center;
+}
+
+/* BOX */
+.yt-box{
+    width:100%;
+    padding:20px;
+}
+
+/* SUBSCRIBE TEXT */
+.yt-sub{
+    color:red;
+    font-size:32px;
+    font-weight:bold;
+}
+
+/* LOGO */
+.yt-logo{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+
+    margin:20px 0;
+
+    font-size:40px;
+    font-weight:bold;
+    color:black;
+}
+
+/* PLAY ICON */
+.play{
+    width:60px;
+    height:40px;
+    background:red;
+    border-radius:10px;
+    position:relative;
+}
+
+.play::after{
+    content:"";
+    position:absolute;
+    left:22px;
+    top:10px;
+
+    border-left:15px solid white;
+    border-top:10px solid transparent;
+    border-bottom:10px solid transparent;
+}
+
+/* JOIN TEXT */
+.yt-join{
+    color:#00ff7f;
+    font-size:26px;
+    margin:15px 0;
+}
+
+/* OPEN BUTTON */
+.yt-open{
+    display:inline-block;
+    padding:15px 30px;
+
+    background:white;
+    color:black;
+    text-decoration:none;
+
+    font-weight:bold;
+    border-radius:30px;
+
+    margin:15px 0;
+}
+
+/* LINK TEXT */
+.yt-link{
+    color:white;
+    font-size:14px;
+    word-break:break-all;
+    margin-top:10px;
+}
+
+/*ADMIN COMOND*/
+#adminPage{
+    min-height:100vh;
+    background:url('https://i.imgur.com/8lQGZ6X.jpeg') center/cover no-repeat;
+    padding-top:20px;
+}
+
+#adminPage h2{
+    color:#ff00ff;
+    font-size:50px;
+    text-shadow:0 0 20px #ff00ff;
+    margin-bottom:20px;
+}
+
+.admin-box{
+    width:90%;
+    margin:auto;
     padding:25px;
-    border-radius:20px;
-    margin-top:15px;
-
-    background:url("https://images.unsplash.com/photo-1542751371-adc38448a05e");
-    background-size:cover;
-    background-position:center;
-
-    box-shadow:0 0 20px #ff00ff inset,0 0 20px #00ffee inset;
+    border:4px solid;
+    border-image:linear-gradient(45deg,red,cyan,magenta,lime)1;
+    background:rgba(0,0,0,0.55);
 }
 
-/* WAR BG */
-.warBg{
-    background:url("https://images.unsplash.com/photo-1504198453319-5ce911bafcde");
-    background-size:cover;
+.admin-box h3{
+    color:white;
+    font-size:35px;
+    margin:25px 0;
+}
+
+.admin-box input{
+    display:block;
+    width:80%;
+    margin:18px auto;
+    padding:20px;
+    font-size:25px;
+    color:white;
+    background:black;
+    outline:none;
+    border-radius:8px;
+}
+
+.admin-box input:nth-of-type(1){
+    border:4px solid red;
+    box-shadow:0 0 15px red;
+}
+.admin-box input:nth-of-type(2){
+    border:4px solid cyan;
+    box-shadow:0 0 15px cyan;
+}
+.admin-box input:nth-of-type(3){
+    border:4px solid lime;
+    box-shadow:0 0 15px lime;
+}
+.admin-box input:nth-of-type(4){
+    border:4px solid magenta;
+    box-shadow:0 0 15px magenta;
+}
+
+.admin-box button{
+    width:60%;
+    padding:18px;
+    font-size:28px;
+    border:none;
+    border-radius:20px;
+    margin:20px auto;
+    display:block;
+    color:white;
+    cursor:pointer;
+}
+
+button[onclick="addMember()"]{
+    background:linear-gradient(45deg,#ff0066,#ffaa00);
+    box-shadow:0 0 20px #ff0066;
+}
+
+button[onclick="addMoney()"]{
+    background:linear-gradient(45deg,#00ffee,#00aaff);
+    box-shadow:0 0 20px #00ffee;
+}
+
+button[onclick="goBack()"]{
+    width:320px;
+    padding:22px;
+    font-size:30px;
+    margin-top:50px;
+    margin-bottom:30px;
+    background:linear-gradient(45deg,#ff00ff,#00ccff);
+    box-shadow:0 0 20px #ff00ff;
+    border:none;
+    border-radius:20px;
+    color:white;
+}
+#adminBtn{
+    width:80% !important;
+    max-width:300px !important;
+    padding:12px !important;
+    margin:10px !important;
+    border:none !important;
+    border-radius:50px !important;
+    font-size:18px !important;
+    font-weight:bold !important;
+    color:white !important;
+    background:linear-gradient(45deg,#ff00cc,#3333ff) !important;
+    box-shadow:0 0 15px #ff00cc !important;
+}
+
+#adminBtn:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 25px #ff00ff !important;
+}
+
+/* REPORT DELETE BUTTON */
+.report-card button:last-of-type{
+    background:white !important;
+    color:black !important;
+    border:none !important;
+    padding:12px 28px !important;
+    border-radius:30px !important;
+    font-weight:bold !important;
+    font-size:16px !important;
+    box-shadow:0 0 15px white !important;
+    cursor:pointer !important;
+}
+
+.report-card button:last-of-type:hover{
+    background:#f5f5f5 !important;
+    box-shadow:0 0 25px white !important;
+    transform:scale(1.05) !important;
+}
+#rankTable select{
+    background:linear-gradient(45deg,#ffd700,#ff9900);
+    color:black;
+    font-weight:bold;
+    border:none;
+    border-radius:10px;
+    padding:8px;
+}
+
+#verifyTable select{
+    background:linear-gradient(45deg,#00f0ff,#0066ff);
+    color:white;
+    font-weight:bold;
+    border:none;
+    border-radius:10px;
+    padding:8px;
+}
+/* ===== FORCE ALL BACK BUTTON SAME ===== */
+button[onclick="goBack()"],
+.back-btn,
+.discord-back,
+#memberPage button,
+#reportPage button:last-child,
+#taskPage button:last-child {
+
+    display:block;
+    margin:40px auto !important;
+
+    padding:14px 30px !important;
+    font-size:16px !important;
+    font-weight:bold;
+
+    border-radius:30px !important;
+    border:2px solid #00ccff !important;
+
+    background:#001f5c !important;   /* dark blue */
+    color:#00ccff !important;
+
+    box-shadow:
+        0 0 10px #00ccff,
+        0 0 20px #00ccff;
+
+    transition:0.3s;
+}
+
+/* Hover */
+button[onclick="goBack()"]:hover,
+.back-btn:hover,
+.discord-back:hover,
+#memberPage button:hover,
+#reportPage button:last-child:hover,
+#taskPage button:last-child:hover {
+
+    transform:scale(1.05);
+
+    box-shadow:
+        0 0 20px #00ccff,
+        0 0 40px #00ccff;
+}
+/* WARNING PAGE FULL CENTER */
+#warningPage{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* vertical center */
+  align-items: center;       /* horizontal center */
+}
+
+/* TABLE WIDTH FIX */
+.task-table{
+  width: 90%;
+  max-width: 900px;
+}
+
+/* ADD BUTTON FULL WIDTH LOOK */
+.login-btn{
+  width: 80%;
+  max-width: 600px;
+}
+
+/* BACK BUTTON CENTER */
+#warningPage button{
+  margin-top: 20px;
+}
+<h1 class="title">⚠️ WARNING PANEL</h1>
+
+<div style="width:100%; text-align:center; margin:20px 0;">
+    <button class="login-btn" onclick="addWarning()">+ Add Warning</button>
+</div>
+
+/* WARNING TABLE TEXT FIX */
+.task-table td{
+  color: white;   /* text visible */
+}
+
+/* HEADER TEXT */
+.task-table th{
+  color: #2196f3;  /* blue heading */
+}
+
+/* TABLE ROW BACKGROUND */
+.task-table tr{
+  background: rgba(255,255,255,0.05);
+}
+.task-table td{
+  color: white !important;
 }
