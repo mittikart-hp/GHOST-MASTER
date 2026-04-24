@@ -1,1 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <meta charset="UTF-8">
+    <title>Ghost Master</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+<!-- LOGIN PAGE -->
+ <div class="login-container">
+
+    <div class="welcome-box">
+        Welcome to Official <br> Family Website
+    </div>
+
+    <h2 class="title">GHOST<br>MASTER</h2>
+    <!-- NAME -->
+    <div class="box">
+        <button class="btn blue">Name</button>
+        <input id="name" placeholder="Enter Name">
+    </div>
+
+    <!-- RANK -->
+    <div class="box">
+        <button class="btn red">Rank</button>
+        <select id="rank">
+            <option value="">Select Rank</option>
+            <option value="15">Owner</option>
+            <option value="14">Assistant Owner</option>
+            <option value="13">Sr Curator</option>
+            <option value="12">Curator</option>
+            <option value="11">Admin Level 3</option>
+            <option value="10">Admin Level 2</option>
+            <option value="9">Admin Level 1</option>
+            <option value="7">Leader</option>
+            <option value="6">Deputy Leader</option>
+            <option value="5">Manager</option>
+            <option value="4">Sr Member</option>
+            <option value="3">Subscribe</option>
+            <option value="2">Verified</option>
+            <option value="1">Unverified</option>
+        </select>
+    </div>
+
+    <!-- PASSWORD -->
+    <div class="box">
+        <button class="btn pink">Password</button>
+
+        <div class="pass-box">
+            <input id="password" type="password" placeholder="Password">
+
+            <span class="eye" onclick="togglePass()">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+                    <path d="M12 5C5 5 1 12 1 12s4 7 11 7 11-7 11-7-4-7-11-7z"/>
+                    <circle cx="12" cy="12" r="2.5"/>
+                </svg>
+            </span>
+        </div>
+    </div>
+
+    <button class="login-btn" onclick="login()">LOGIN</button>
+    <p id="msg"></p>
+
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard" style="display:none;">
+    <h2 id="userInfo"></h2>
+
+    <div class="container">
+        <button class="btn btn1" onclick="openPage('memberPage')">Member Information</button>
+        <button class="btn btn2" onclick="openPage('rulesPage')">Family Rules</button>
+         <button class="btn btn3" onclick="openPage('taskPage')">Task Tracker</button>
+     <button class="btn btn4" onclick="openPage('warningPage')">Warning</button>
+   <button class="btn btn5" onclick="openPage('youtubePage')">YouTube</button>
+
+  <button id="leaderBtn" class="btn btn6" onclick="openPage('leaderPage')">Leader Panel</button>
+  <button id="adminBtn" onclick="openAdminPanel()">Admin Panel</button>
+        <button class="btn btn8" onclick="openPage('reportPage')">Red Report</button>
+        <button class="btn logout" onclick="logout()">Logout</button>
+    </div>
+</div>
+
+<!-- MEMBER PAGE -->
+<div id="memberPage" class="page" style="display:none;">
+
+<h2 class="member-title">MEMBERS INFORMATION</h2>
+
+<table class="member-table">
+<thead>
+<tr>
+<th>NAMES</th>
+<th>VERIFIED</th>
+<th>RANK</th>
+<th>MONEY</th>
+<th>WAR COUNT</th>
+<th>PHONE</th>
+<th>War Add/Remove</th>
+</tr>
+</thead>
+
+<tbody id="memberTable"></tbody>
+</table>
+
+<button onclick="goBack()">Back</button>
+</div>
+
+<!-- RULES PAGE (DISCORD STYLE SINGLE BOX) -->
+<div id="rulesPage" class="page discord-page" style="display:none;">
+
+<h2 class="discord-title"> FAMILY RULES</h2>
+
+<div class="discord-single">
+
+<p><span>1</span> Respect First  
+<br>Har member respect se baat karega. No personal attacks.</p>
+
+<p><span>2</span> No Toxicity  
+<br>Abuse ya unnecessary arguments mana hai.</p>
+
+<p><span>3</span> War Discipline  
+<br>Leader/Admin ke orders follow karne honge.</p>
+
+<p><span>4</span> Activity  
+<br>Inactive rehne par warning ya removal ho sakta hai.</p>
+
+<p><span>5</span> No Internal Fight  
+<br>Groupism ya internal fight allowed nahi.</p>
+
+<p><span>6</span> Server Rules  
+<br>Official server rules follow karna compulsory hai.</p>
+
+<p><span>7</span> No Cheating  
+<br>Hack, exploit ya unfair advantage par strict action.</p>
+
+<p><span>8</span> War Proof  
+<br>War ka screenshot mandatory hai.</p>
+
+<p><span>9</span> Reputation  
+<br>Professional behaviour maintain karo.</p>
+
+<p><span>10</span> Reward  
+<br>Fair reward system follow hoga.</p>
+
+</div>
+
+<button class="discord-back" onclick="goBack()">Back</button>
+</div>
+<!-- TASK TRACKER PAGE -->
+<div id="taskPage" class="page" style="display:none;">
+<h1 class="task-title">TASK TRACKER</h1>
+
+<div style="text-align:center; margin:15px;">
+    <button class="login-btn" onclick="addTask()">+ Add Task</button>
+</div>
+
+<table class="task-table">
+<thead>
+<tr>
+<th>Name</th>
+<th>Task Completed</th>
+<th>Approved By</th>
+<th>Due Date</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody id="taskTable"></tbody>
+</table>
+
+<button onclick="goBack()">Back</button>
+
+</div>
+<!-- REPORT PAGE -->
+<div id="reportPage" class="page" style="display:none;">
+
+<h1 class="title">RED REPORT PANEL</h1>
+
+<div class="tabs">
+    <button class="all" onclick="showReports('all')">All</button>
+    <button class="against" onclick="showReports('against')">Against Me</button>
+    <button class="by" onclick="showReports('by')">By Me</button>
+</div>
+
+<button class="create-btn" onclick="openCreate()">+ Create</button>
+
+<div id="createBox" style="display:none;">
+<input type="text" id="playerName" placeholder="Player Name">
+<textarea id="reason" placeholder="Reason"></textarea>
+<input type="text" id="imgLink" placeholder="Image Link">
+<button onclick="submitReport()">Submit</button>
+</div>
+
+<div id="reportList"></div>
+
+<button onclick="goBack()">Back</button>
+</div>
+<!-- WARNING PAGE -->
+<div id="warningPage" class="page" style="display:none;">
+
+<h1 class="title">⚠️ WARNING PANEL</h1>
+
+<div style="text-align:center; margin:10px;">
+  <button class="login-btn" onclick="addWarning()">+ Add Warning</button>
+</div>
+
+<table class="task-table">
+<thead>
+<tr>
+<th>Name</th>
+<th>Reason</th>
+<th>Given By</th>
+<th>Date</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody id="warningTable"></tbody>
+</table>
+
+<button onclick="goBack()">Back</button>
+
+</div>
+
+<!-- YOUTUBE PAGE -->
+<div id="youtubePage" class="page" style="display:none;">
+    <div class="yt-box">
+
+        <h1 class="yt-sub">SUBSCRIBE NOW</h1>
+
+        <!-- LOGO + TEXT -->
+        <div class="yt-logo">
+            <div class="play"></div>
+            <span>YouTube</span>
+        </div>
+
+        <h2 class="yt-join">JOIN YOUTUBE CHANNEL</h2>
+
+        <!-- CLICK AREA -->
+        <a href="https://youtube.com/@rpindianclub?si=yOEWmSikXndl6RUt" target="_blank" class="yt-open">
+            OPEN CHANNEL
+        </a>
+
+
+        <button class="back-btn" onclick="goBack()">Back</button>
+
+    </div>
+
+</div>
+<!-- =======ADMIN PAGE ACCESS======== -->
+<div id="adminPage" class="page" style="display:none;">
+<h2>Admin Panel</h2>
+
+<div class="admin-box">
+
+<div id="viewSection">
+<h3>Members List</h3>
+<div id="adminMemberList"></div>
+</div>
+
+<div id="moneySection" style="display:none;">
+<h3>Update Contribution</h3>
+<input type="number" id="memberIndex" placeholder="Member Number">
+<input type="text" id="depositAmount" placeholder="Deposit">
+<button onclick="addMoney()">Add Deposit</button>
+</div>
+
+<div id="addSection" style="display:none;">
+<h3>Add Member</h3>
+<input type="text" id="newName" placeholder="Name">
+<input type="text" id="newRank" placeholder="Rank Name">
+<input type="text" id="newPassword" placeholder="Password">
+<button onclick="addMember()">Add Member</button>
+</div>
+
+</div>
+
+<button onclick="goBack()">Back</button>
+</div>
+// ====== Leader ===========
+<div id="leaderPage" class="page" style="display:none;">
+    <h2 class="leader-title">⚡ Leader Panel ⚡</h2>
+<div class="container">
+    <button class="btn btn1" onclick="openLeaderSection('rankSection')">Rank Up / Down</button>
+    <button class="btn btn2" onclick="openLeaderSection('verifySection')">Verification</button>
+</div>
+
+    <div id="rankSection" style="display:none;">
+        <table class="member-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Rank</th>
+                    <th>Change</th>
+                </tr>
+            </thead>
+            <tbody id="rankTable"></tbody>
+        </table>
+    </div>
+
+    <div id="verifySection" style="display:none;">
+        <table class="member-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Verified</th>
+                    <th>Change</th>
+                </tr>
+            </thead>
+            <tbody id="verifyTable"></tbody>
+        </table>
+    </div>
+
+    <button onclick="goBack()">Back</button>
+</div>
+
+<script type="module" src="script.js"></script>
+</body>
+  </html>
