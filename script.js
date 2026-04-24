@@ -212,8 +212,37 @@ async function loadMembers(){
 
   const querySnapshot = await getDocs(collection(db, "members"));
 
+  let currentRank = parseInt(localStorage.getItem("currentRank")) || 1;
+
+  let i = 0;
+
   querySnapshot.forEach((doc) => {
     let m = doc.data();
+
+    let actionButtons = "";
+
+    if(currentRank <= 9){
+      actionButtons = `-`;
+    }
+    else if(currentRank <= 10){
+      actionButtons = `
+        <button class="war-btn add" onclick="updateWar(${i},'add')">+ Add</button>
+        <button disabled>- Remove</button>
+      `;
+    }
+    else if(currentRank < 15){
+      actionButtons = `
+        <button class="war-btn add" onclick="updateWar(${i},'add')">+ Add</button>
+        <button class="war-btn remove" onclick="updateWar(${i},'remove')">- Remove</button>
+      `;
+    }
+    else{
+      actionButtons = `
+        <button class="war-btn add" onclick="updateWar(${i},'add')">+ Add</button>
+        <button class="war-btn remove" onclick="updateWar(${i},'remove')">- Remove</button>
+        <button class="delete-btn" onclick="deleteMember(${i})">Delete</button>
+      `;
+    }
 
     box.innerHTML += `
     <tr>
@@ -223,35 +252,11 @@ async function loadMembers(){
       <td>${m.money}</td>
       <td>${m.war}</td>
       <td>${m.phone || "-"}</td>
-      <td>-</td>
+      <td>${actionButtons}</td>
     </tr>`;
+
+    i++;
   });
-}
-      ${
-        currentRank <= 9
-        ? ``
-
-        : currentRank <= 10
-        ? `
-          <button class="war-btn add" onclick="updateWar(${i},'add')">+ Add</button>
-          <button disabled>- Remove</button>
-        `
-
-        : currentRank < 15
-        ? `
-          <button class="war-btn add" onclick="updateWar(${i},'add')">+ Add</button>
-          <button class="war-btn remove" onclick="updateWar(${i},'remove')">- Remove</button>
-        `
-
-        : `
-          <button class="war-btn add" onclick="updateWar(${i},'add')">+ Add</button>
-          <button class="war-btn remove" onclick="updateWar(${i},'remove')">- Remove</button>
-          <button class="delete-btn" onclick="deleteMember(${i})">Delete</button>
-        `
-      }
-    </td>
-  </tr>`;
- });
 }
 
 function updateWar(i,action){
