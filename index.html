@@ -43,25 +43,28 @@
         </select>
     </div>
 
+    
     <!-- PASSWORD -->
     <div class="box">
         <button class="btn pink">Password</button>
+<div class="pass-box">
+    <input id="password" type="password" placeholder="Password">
 
-        <div class="pass-box">
-            <input id="password" type="password" placeholder="Password">
+    <span class="eye" onclick="togglePass()" id="eyeIcon">
 
-            <span class="eye" onclick="togglePass()">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
-                    <path d="M12 5C5 5 1 12 1 12s4 7 11 7 11-7 11-7-4-7-11-7z"/>
-                    <circle cx="12" cy="12" r="2.5"/>
-                </svg>
-            </span>
-        </div>
-    </div>
+        <!-- OPEN EYE -->
+        <svg id="eyeOpen" viewBox="0 0 24 24">
+            <path d="M12 5C5 5 1 12 1 12s4 7 11 7 11-7 11-7-4-7-11-7z"/>
+            <circle cx="12" cy="12" r="3"/>
+        </svg>
 
-    <button class="login-btn" onclick="login()">LOGIN</button>
-    <p id="msg"></p>
+        <!-- CLOSED EYE -->
+        <svg id="eyeClose" viewBox="0 0 24 24" style="display:none;">
+            <path d="M1 1l22 22"/>
+            <path d="M12 5C5 5 1 12 1 12c1.5 2.5 4 4.5 7 5.5M9 9a3 3 0 014 4"/>
+        </svg>
 
+    </span>
 </div>
 
 
