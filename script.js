@@ -93,9 +93,10 @@ function login(){
 
 // ================= LOGOUT =================
 function logout(){
+ localStorage.removeItem("currentUser");
+ localStorage.removeItem("currentRank");
  location.reload();
 }
-
 // ================= PAGE SWITCH =================
 function openPage(id){
 
