@@ -1971,3 +1971,32 @@ button[onclick="goBack()"]:hover,
   color: white;
   border-radius: 6px;
 }
+/* DATABASE LOG DESIGN */
+#dbLogs {
+  padding: 10px;
+}
+
+.log-card {
+  background: #111;
+  color: #0f0;
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 8px;
+  border-left: 4px solid red;
+  font-size: 14px;
+}
+
+/* DATABASE BUTTON */
+#dbBtn {
+  background: purple;
+  color: white;
+}
+
+/* BACK BUTTON */
+.back-btn {
+  margin-top: 15px;
+  padding: 8px 12px;
+  background: black;
+  color: white;
+  border-radius: 6px;
+}
