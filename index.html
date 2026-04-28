@@ -46,28 +46,24 @@
     <!-- PASSWORD -->
     <div class="box">
         <button class="btn pink">Password</button>
-<div class="pass-box">
-    <input id="password" type="password" placeholder="Password">
 
-    <span class="eye" onclick="togglePass()" id="eyeIcon">
+        <div class="pass-box">
+            <input id="password" type="password" placeholder="Password">
 
-        <!-- OPEN EYE -->
-        <svg id="eyeOpen" viewBox="0 0 24 24">
-            <path d="M12 5C5 5 1 12 1 12s4 7 11 7 11-7 11-7-4-7-11-7z"/>
-            <circle cx="12" cy="12" r="3"/>
-        </svg>
+            <span class="eye" onclick="togglePass()">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+                    <path d="M12 5C5 5 1 12 1 12s4 7 11 7 11-7 11-7-4-7-11-7z"/>
+                    <circle cx="12" cy="12" r="2.5"/>
+                </svg>
+            </span>
+        </div>
+    </div>
 
-        <!-- CLOSED EYE -->
-        <svg id="eyeClose" viewBox="0 0 24 24" style="display:none;">
-            <path d="M1 1l22 22"/>
-            <path d="M12 5C5 5 1 12 1 12c1.5 2.5 4 4.5 7 5.5M9 9a3 3 0 014 4"/>
-        </svg>
+    <button class="login-btn" onclick="login()">LOGIN</button>
+    <p id="msg"></p>
 
-    </span>
 </div>
-<button class="login-btn" onclick="login()">LOGIN</button>
-<p id="msg"></p>
-</div> <!-- 👈 ye missing tha -->
+
 <!-- DASHBOARD -->
 <div id="dashboard" style="display:none;">
     <h2 id="userInfo"></h2>
@@ -76,7 +72,7 @@
         <button class="btn btn1" onclick="openPage('memberPage')">Member Information</button>
         <button class="btn btn2" onclick="openPage('rulesPage')">Family Rules</button>
          <button class="btn btn3" onclick="openPage('taskPage')">Task Tracker</button>
-     <button class="btn btn4" onclick="openPage('warningPage')">Warning</button>
+        <button class="btn btn4" onclick="openPage('warningPage')">Warning</button>
    <button class="btn btn5" onclick="openPage('youtubePage')">YouTube</button>
 
   <button id="leaderBtn" class="btn btn6" onclick="openPage('leaderPage')">Leader Panel</button>
@@ -201,35 +197,10 @@
 
 <button onclick="goBack()">Back</button>
 </div>
-<!-- WARNING PAGE -->
-<div id="warningPage" class="page" style="display:none;">
 
-<h1 class="title">⚠️ WARNING PANEL</h1>
-
-<div style="text-align:center; margin:10px;">
-  <button class="login-btn" onclick="addWarning()">+ Add Warning</button>
-</div>
-
-<table class="task-table">
-<thead>
-<tr>
-<th>Name</th>
-<th>Reason</th>
-<th>Given By</th>
-<th>Date</th>
-<th>Action</th>
-</tr>
-</thead>
-
-<tbody id="warningTable"></tbody>
-</table>
-
-<button onclick="goBack()">Back</button>
-
-</div>
-
-<!-- YOUTUBE PAGE -->
+// YOUTUBE PAGE
 <div id="youtubePage" class="page" style="display:none;">
+
     <div class="yt-box">
 
         <h1 class="yt-sub">SUBSCRIBE NOW</h1>
@@ -253,7 +224,7 @@
     </div>
 
 </div>
-<!-- =======ADMIN PAGE ACCESS======== -->
+// =======ADMIN PAGE ACCESS========
 <div id="adminPage" class="page" style="display:none;">
 <h2>Admin Panel</h2>
 
@@ -283,12 +254,14 @@
 
 <button onclick="goBack()">Back</button>
 </div>
+// ====== Leader ===========
 <div id="leaderPage" class="page" style="display:none;">
     <h2 class="leader-title">⚡ Leader Panel ⚡</h2>
-<div class="container">
-    <button class="btn btn1" onclick="openLeaderSection('rankSection')">Rank Up / Down</button>
-    <button class="btn btn2" onclick="openLeaderSection('verifySection')">Verification</button>
-</div>
+
+    <div class="container">
+        <button class="btn btn1" onclick="openLeaderSection('rankSection')">Rank Up / Down</button>
+        <button class="btn btn2" onclick="openLeaderSection('verifySection')">Verification</button>
+  </div>
 
     <div id="rankSection" style="display:none;">
         <table class="member-table">
@@ -318,5 +291,32 @@
 
     <button onclick="goBack()">Back</button>
 </div>
-<script src="script.js"></script></body>
+<!-- WARNING PAGE -->
+<div id="warningPage" class="page" style="display:none;">
+
+<h1 class="title">⚠️ WARNING PANEL</h1>
+
+<div style="text-align:center; margin:10px;">
+  <button class="login-btn" onclick="addWarning()">+ Add Warning</button>
+</div>
+
+<table class="task-table">
+<thead>
+<tr>
+<th>Name</th>
+<th>Reason</th>
+<th>Given By</th>
+<th>Date</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody id="warningTable"></tbody>
+</table>
+
+<button class="back-btn" onclick="goBack()">⬅ Back</button>
+
+</div>
+<script src="script.js"></script>
+</body>
 </html>
