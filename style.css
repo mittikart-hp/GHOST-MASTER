@@ -1924,3 +1924,50 @@ button[onclick="goBack()"]:hover,
 .task-table td{
   color: white !important;
 }
+/* ADMIN PANEL TEXT WHITE FIX */
+#adminPage {
+    color: white;
+}
+
+#adminPage p,
+#adminPage h2,
+#adminPage h3 {
+    color: white;
+}
+
+/* INPUT + TEXT */
+#adminPage input {
+    color: white;
+    background: #111;
+    border: 1px solid #555;
+}
+
+/* MEMBER LIST TEXT */
+#adminMemberList {
+    color: white;
+}
+/* WARNING TABLE FIX */
+#warningTable td {
+  color: white;
+  text-align: center;
+}
+
+/* BUTTON STYLE */
+#warningPage button {
+  margin: 5px;
+  padding: 6px 10px;
+  border: none;
+  background: red;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* BACK BUTTON */
+.back-btn {
+  margin-top: 15px;
+  padding: 8px 12px;
+  background: black;
+  color: white;
+  border-radius: 6px;
+}
