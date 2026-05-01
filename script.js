@@ -153,6 +153,35 @@ function updateWar(i, action){
  localStorage.setItem("members", JSON.stringify(members));
  loadMembers();
 }
+function deleteMember(i){
+    let rank = parseInt(localStorage.getItem("currentRank"));
+
+    // ❌ Only owner allowed
+    if(rank !== 15){
+        alert("Only Owner can delete member!");
+        return;
+    }
+
+    if(!confirm("Are you sure you want to delete this member?")) return;
+
+    // member remove
+    let removedName = members[i].name;
+    members.splice(i,1);
+
+    // users list से भी हटाओ (important)
+    let uIndex = users.findIndex(u => u.name === removedName);
+    if(uIndex !== -1){
+        users.splice(uIndex,1);
+    }
+
+    // save
+    localStorage.setItem("members", JSON.stringify(members));
+    localStorage.setItem("users", JSON.stringify(users));
+
+    loadMembers();
+
+    alert("Member Deleted!");
+}
 // ================= TASK SYSTEM =================
 function loadTasks(){
     let box = document.getElementById("taskTable");
