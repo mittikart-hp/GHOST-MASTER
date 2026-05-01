@@ -59,10 +59,10 @@ function login(){
 }
 
 function logout(){
-    localStorage.clear();
+    localStorage.removeItem("currentUser");
+    localStorage.removeItem("currentRank");
     location.reload();
 }
-
 function togglePass(){
     let p = document.getElementById("password");
     let open = document.getElementById("eyeOpen");
