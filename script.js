@@ -513,23 +513,37 @@ function addMember(){
 
     if(!name || !rankName || !password) return alert("Fill all fields!");
 
-    // Check if user already exists
-    if(users.some(u => u.name.toLowerCase() === name.toLowerCase())) {
+    // ❌ duplicate check
+    if(users.some(u => u.name.toLowerCase() === name.toLowerCase())){
         return alert("User already exists!");
     }
 
     let rankNum = getRankNumber(rankName);
 
-    // Push to members and users
-    members.push({ name, verified: false, rank: rankName, money: 0, war: 0 });
-    users.push({ name, password, rank: rankNum });
+    // ✅ MEMBER ADD (यहाँ add करना है)
+    members.push({ 
+        name, 
+        rank: rankName, 
+        money: 0, 
+        war: 0, 
+        verified: false,
+        phone: "-"
+    });
 
+    // ✅ USER ADD (login के लिए)
+    users.push({ 
+        name, 
+        password, 
+        rank: rankNum 
+    });
+
+    // SAVE
     localStorage.setItem("members", JSON.stringify(members));
     localStorage.setItem("users", JSON.stringify(users));
 
     loadAdminMembers();
     alert("New Member Added!");
-}
+        }
 // OPEN LEADER SECTION
 function openLeaderSection(id){
     let rank = parseInt(localStorage.getItem("currentRank"));
