@@ -48,16 +48,31 @@ function login(){
     let r = parseInt(document.getElementById("rank").value);
     let p = document.getElementById("password").value;
 
-    let user = users.find(u => u.name === n && u.rank === r && u.password === p);
-    if(user){
-        localStorage.setItem("currentUser", n);
-        localStorage.setItem("currentRank", r);
-        location.reload();
-    } else {
-        document.getElementById("msg").innerText = "Invalid Credentials!";
-    }
-}
+    let user = users.find(u => u.name === n);
 
+    // ❌ NAME WRONG
+    if(!user){
+        document.getElementById("msg").innerText = "❌ Name not found!";
+        return;
+    }
+
+    // ❌ RANK WRONG
+    if(user.rank !== r){
+        document.getElementById("msg").innerText = "❌ Wrong Rank!";
+        return;
+    }
+
+    // ❌ PASSWORD WRONG
+    if(user.password !== p){
+        document.getElementById("msg").innerText = "❌ Wrong Password!";
+        return;
+    }
+
+    // ✅ SUCCESS LOGIN
+    localStorage.setItem("currentUser", n);
+    localStorage.setItem("currentRank", r);
+    location.reload();
+}
 function logout(){
     localStorage.removeItem("currentUser");
     localStorage.removeItem("currentRank");
